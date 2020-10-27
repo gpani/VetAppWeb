@@ -4,7 +4,8 @@
 
 class ListadoTurnos extends View {
 
-	public $turno;
+	public $vetTurno;
+	public $peluTurno;
 
 	
 }
