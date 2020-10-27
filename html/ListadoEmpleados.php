@@ -14,7 +14,7 @@
 		<tr><th>Id</th><th>Nombre</th></tr>
 
 		<?php foreach($this->empleados as $e) { ?>
-		<tr><td><?= $e['empleado_id'] ?></td> <td><?= $e['nombre'] ?></td></tr>
+		<tr><td><?= $e['Id_empleado'] ?></td> <td><?= $e['nombre_apellido'] ?></td></tr>
 		<?php } ?>
 
 	</table>

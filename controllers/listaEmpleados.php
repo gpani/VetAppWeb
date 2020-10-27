@@ -9,8 +9,10 @@ require '../views/ListadoEmpleados.php';
 $e = new Empleados();
 $todos = $e->getTodos();
 
-//var_dump($todos);
+var_dump($todos);
 
 $v = new ListadoEmpleados();
 $v->empleados = $todos;
 $v->render();
+
+?>

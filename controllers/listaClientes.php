@@ -12,5 +12,5 @@ $todos = $e->getTodos();
 //var_dump($todos);
 
 $v = new ListadoClientes();
-$v->empleados = $todos;
+$v->clientes = $todos;
 $v->render();
