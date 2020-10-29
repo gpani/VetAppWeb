@@ -76,6 +76,7 @@
                                     <input type="text" class="form-control" placeholder="N° celular *" value=""/>
                                 </div>
                             </div>
+                            
                         </div>
                         <button type="button" class="btnSubmit">Confirmar</button>
                         <button type="button" class="btnSubmit">Cancelar</button>
