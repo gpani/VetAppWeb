@@ -9,7 +9,7 @@ require '../views/ListadoMascotas.php';
 $e = new Mascotas();
 $todos = $e->getTodos();
 
-var_dump($todos);
+//var_dump($todos);
 
 $v = new ListadoMascotas();
 $v->mascotas = $todos;
