@@ -125,13 +125,14 @@
                                         <div class="form-group">
                                             <input type="password" class="form-control" placeholder="Raza*" value="" />
                                         </div>
-                                        <div class="form-group">
-                                            <input type="password" class="form-control"  placeholder="Peso *" value="" />
-                                        </div>
+
 
                                         
                                     </div>
                                     <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input type="password" class="form-control"  placeholder="Peso *" value="" />
+                                        </div>
                                         <div class="form-group">
                                             <input type="password" class="form-control"  placeholder=" id_mascota *" value="" />
                                         </div>
@@ -144,9 +145,7 @@
                                                 <option>Dueño3</option>
                                             </select>
                                         </div>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Enter Your Answer *" value="" />
-                                        </div>
+
                                         <input type="submit" class="btnRegister"  value="Cancelar"/>
                                         <input type="submit" class="btnRegister"  value="Registrar"/>
                                     </div>
