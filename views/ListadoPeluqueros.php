@@ -4,7 +4,7 @@
 
 class ListadoPeluqueros extends View {
 
-	public $peluquero;
+	public $peluqueros;
 
 	
 }
