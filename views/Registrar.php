@@ -4,7 +4,7 @@
 
 class Registrar extends View {
 
-	public $registrar;
+	public $listaTipos;
 
 	
 }
