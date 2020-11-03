@@ -21,21 +21,25 @@
     <table class="table">
       <thead>
         <tr>
-          <th>Id_turno</th>
-          <th>Fecha_turno</th>
-          <th>Nombre</th>
+          <th>id</th>
+          <th>Fecha</th>
+          <th>Nombre Mascota</th>
           <th>Veterinario</th>
           <th>Cliente</th>
+          <th>Precio</th>
+          <th>Notas</th>
         </tr>
       </thead>
       <tbody>
         <?php foreach ($this->vetTurno as $e) { ?>
           <tr class="table-primary">
-            <td><?= $e['id_turno'] ?></td>
-            <td><?= $e['fecha_turno'] ?></td>
+            <td><?= $e['id'] ?></td>
+            <td><?= $e['fecha_hora'] ?></td>
             <td class="table-danger"><?= $e['nombre'] ?></td>
-            <td class="table-info"><?= $e['veterinario'] ?></td>
-            <td class="table-active"><?= $e['cliente'] ?></td>
+            <td class="table-info"><?= $e['profesional'] ?></td>
+            <td class="table-active"><?= $e['dueño'] ?></td>
+            <td class="table-active"><?= $e['precio'] ?></td>
+            <td class="table-active"><?= $e['notas'] ?></td>
           </tr>
         <?php } ?>
 
@@ -46,26 +50,30 @@
   <br />
   <br />
   <div class="container">
-    <h2>Listado de turnos Peluquero</h2>
+    <h2>Listado de turnos Estilista</h2>
 
     <table class="table">
       <thead>
         <tr>
-          <th>Id_turno</th>
-          <th>Fecha_turno</th>
-          <th>Nombre</th>
-          <th>Peluquero</th>
+          <th>id</th>
+          <th>Fecha</th>
+          <th>Nombre Mascota</th>
+          <th>Estilista</th>
           <th>Cliente</th>
+          <th>Precio</th>
+          <th>Notas</th>
         </tr>
       </thead>
       <tbody>
         <?php foreach ($this->peluTurno as $e) { ?>
           <tr class="table-success">
-            <td><?= $e['id_turno'] ?></td>
-            <td class="table-primary"><?= $e['fecha_turno'] ?></td>
+            <td><?= $e['id'] ?></td>
+            <td><?= $e['fecha_hora'] ?></td>
             <td class="table-danger"><?= $e['nombre'] ?></td>
-            <td class="table-info"><?= $e['peluquero'] ?></td>
-            <td class="table-active"><?= $e['cliente'] ?></td>
+            <td class="table-info"><?= $e['profesional'] ?></td>
+            <td class="table-active"><?= $e['dueño'] ?></td>
+            <td class="table-active"><?= $e['precio'] ?></td>
+            <td class="table-active"><?= $e['notas'] ?></td>
           </tr>
         <?php } ?>
 
