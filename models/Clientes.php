@@ -10,7 +10,7 @@ class Clientes extends Model {
 
     public function getTodos(){
 
-        $this->db->query("SELECT cliente.Id_cliente, Persona.nombre_apellido, Persona.edad, Persona.dni, Persona.dirección, Persona.nro_telefono, Persona.usuario, Persona.email FROM cliente INNER JOIN Persona ON cliente.Id_persona=Persona.id_persona");
+        $this->db->query("SELECT nombre_apellido, dni, direccion, telefono, usuario, email FROM persona WHERE tipo = 'cliente'");
         return $this->db->fetchAll();
     }
 

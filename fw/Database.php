@@ -13,7 +13,7 @@ class Database {
 	}
 
 	private function connect() {
-		$this->cn = mysqli_connect("localhost", "root", "", "proyecto_vetApp");
+		$this->cn = mysqli_connect("localhost", "root", "", "vetAppWeb");
 	}
 
 	public function query($q) {
