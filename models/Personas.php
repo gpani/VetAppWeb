@@ -11,6 +11,7 @@ class Personas extends Model {
     public function agregar($dni, $usuario, $password, $nombre_apellido, $tipo, $direccion, $telefono, $email){
         $this->db->query("INSERT INTO `persona` (`dni`, `usuario`, `password`, `nombre_apellido`, `tipo`, `direccion`, `telefono`, `email`) VALUES ($dni, '$usuario', '$password', '$nombre_apellido', '$tipo', '$direccion', '$telefono', '$email')");
     }
+
     public function listarTipos(){
         $this->db->query("SELECT tipo FROM tipo_persona");
         return $this->db->fetchAll();

@@ -3,6 +3,6 @@
 
 class AgregarMascotas extends View {
 
-	public $agregarMascotas;
+	public $clientes;
 
 }
