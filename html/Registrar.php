@@ -69,7 +69,7 @@
                             <input type="text" name="usuario" class="form-control" placeholder="Usuario*" value="" />
                         </div>
                         <div class="form-group">
-                            <input type="text" name="password" class="form-control" placeholder="Contraseña *" value="" />
+                            <input type="password" name="password" class="form-control" placeholder="Contraseña *" value="" />
                         </div>
                         <div class="form-group">
                             <input type="text" name="matricula" class="form-control" placeholder="Matricula *" value="" />

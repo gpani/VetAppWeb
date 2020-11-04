@@ -26,8 +26,6 @@
           <th>Nombre Mascota</th>
           <th>Veterinario</th>
           <th>Cliente</th>
-          <th>Precio</th>
-          <th>Notas</th>
         </tr>
       </thead>
       <tbody>
@@ -38,8 +36,6 @@
             <td class="table-danger"><?= $e['nombre'] ?></td>
             <td class="table-info"><?= $e['profesional'] ?></td>
             <td class="table-active"><?= $e['dueño'] ?></td>
-            <td class="table-active"><?= $e['precio'] ?></td>
-            <td class="table-active"><?= $e['notas'] ?></td>
           </tr>
         <?php } ?>
 
@@ -60,8 +56,6 @@
           <th>Nombre Mascota</th>
           <th>Estilista</th>
           <th>Cliente</th>
-          <th>Precio</th>
-          <th>Notas</th>
         </tr>
       </thead>
       <tbody>
@@ -72,8 +66,6 @@
             <td class="table-danger"><?= $e['nombre'] ?></td>
             <td class="table-info"><?= $e['profesional'] ?></td>
             <td class="table-active"><?= $e['dueño'] ?></td>
-            <td class="table-active"><?= $e['precio'] ?></td>
-            <td class="table-active"><?= $e['notas'] ?></td>
           </tr>
         <?php } ?>
 
