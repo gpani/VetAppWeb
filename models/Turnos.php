@@ -14,4 +14,7 @@ class Turnos extends Model {
 		return $this->db->fetchAll();
 	}
 
+	public function agregar($id_profesional, $id_mascota, $fecha_hora) {
+		$this->db->query("INSERT INTO `turno`(`id_profesional`, `id_mascota`, `fecha_hora`) VALUES ($id_profesional,$id_mascota,'$fecha_hora')");
+	}
 }
