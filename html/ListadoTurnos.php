@@ -4,7 +4,7 @@
 <html lang="en">
 
 <head>
-  <title>Bootstrap Example</title>
+  <title>Listas de Turnos</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -20,7 +20,7 @@
 
     <table class="table">
       <thead>
-        <tr>
+        <tr class="table-success">
           <th>id</th>
           <th>Fecha</th>
           <th>Nombre Mascota</th>
@@ -50,7 +50,7 @@
 
     <table class="table">
       <thead>
-        <tr>
+        <tr class="table-success">
           <th>id</th>
           <th>Fecha</th>
           <th>Nombre Mascota</th>
@@ -60,7 +60,7 @@
       </thead>
       <tbody>
         <?php foreach ($this->peluTurno as $e) { ?>
-          <tr class="table-success">
+          <tr class="table-danger">
             <td><?= $e['id'] ?></td>
             <td><?= $e['fecha_hora'] ?></td>
             <td class="table-danger"><?= $e['nombre'] ?></td>
