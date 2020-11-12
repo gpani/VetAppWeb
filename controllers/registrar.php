@@ -12,7 +12,7 @@ $v = new Registrar();
 if(isset($_POST["nombre_apellido"])){
     /* TODO: hashear password!! */
     $m->agregar(
-        $_POST["dni"], 
+        intval($_POST["dni"]), 
         $_POST["usuario"],
         $_POST["password"],
         $_POST["nombre_apellido"],

@@ -9,6 +9,16 @@ class Personas extends Model {
     }
 
     public function agregar($dni, $usuario, $password, $nombre_apellido, $tipo, $direccion, $telefono, $email){
+        if (!is_int($dni)) {
+            die("dni debe ser int");
+        }
+        $usuario = $this->db->escape($usuario);
+        $password = $this->db->escape($password);
+        $nombre_apellido = $this->db->escape($nombre_apellido);
+        $tipo = $this->db->escape($tipo);
+        $direccion = $this->db->escape($direccion);
+        $telefono = $this->db->escape($telefono);
+        $email = $this->db->escape($email);
         $this->db->query("INSERT INTO `persona` (`dni`, `usuario`, `password`, `nombre_apellido`, `tipo`, `direccion`, `telefono`, `email`) VALUES ($dni, '$usuario', '$password', '$nombre_apellido', '$tipo', '$direccion', '$telefono', '$email')");
     }
 

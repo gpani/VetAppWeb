@@ -15,6 +15,13 @@ class Turnos extends Model {
 	}
 
 	public function agregar($id_profesional, $id_mascota, $fecha_hora) {
+		if (!is_int($id_profesional)) {
+            die("id_profesional debe ser int");
+		}
+		if (!is_int($id_mascota)) {
+            die("id_mascota debe ser int");
+		}
+		$fecha_hora = $this->db->escape($fecha_hora);
 		$this->db->query("INSERT INTO `turno`(`id_profesional`, `id_mascota`, `fecha_hora`) VALUES ($id_profesional,$id_mascota,'$fecha_hora')");
 	}
 }
