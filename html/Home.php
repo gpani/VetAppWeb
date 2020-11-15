@@ -47,10 +47,28 @@
     </nav>
   </header>
   <main role="main" class="container">
-  <h1>Turnos para mis mascotas</h1>
-  <?php foreach ($this->mascotas as $m) { ?>
-    <h2><?= $m['nombre'] ?></h2>
-  <?php } ?>
+    <h1>Turnos para mis mascotas</h1>
+    <?php foreach ($this->turnos as $k => $v) { ?>
+      <h2><?= $k ?></h2>
+      <table class="table">
+      <thead>
+        <tr class="table-success">
+          <th>Fecha</th>
+          <th>Tipo</th>
+          <th>Profesional</th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php foreach ($v as $t) { ?>
+          <tr class="table-primary">
+            <td><?= $t['fecha_hora'] ?></td>
+            <td class="table-danger"><?= $t['tipo'] ?></td>
+            <td class="table-info"><?= $t['nombre_apellido'] ?></td>
+          </tr>
+        <?php } ?>
+      </tbody>
+    </table>
+    <?php } ?>
   </main>
   <footer class="footer">
     <div class="container text-center">

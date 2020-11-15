@@ -15,7 +15,11 @@ class Turnos extends Model {
 	}
 
 	public function getTurnosDeMascota($id_mascota) {
-		
+		if (!is_int($id_mascota)) {
+            die("getTurnosDeMascota: id_mascota debe ser int");
+		}
+		$this->db->query("SELECT DATE_FORMAT(tur.fecha_hora,'%d/%m/%Y %H:%i') as fecha_hora, per.tipo,per.nombre_apellido FROM turno tur join persona per on tur.id_profesional = per.dni where id_mascota = $id_mascota order by tur.fecha_hora");
+		return $this->db->fetchAll();
 	}
 
 	public function agregar($id_profesional, $id_mascota, $fecha_hora) {

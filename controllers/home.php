@@ -6,6 +6,7 @@ require '../fw/fw.php';
 require '../views/Home.php';
 require '../models/Personas.php';
 require '../models/Mascotas.php';
+require '../models/Turnos.php';
 
 $p = new Personas();
 
@@ -18,7 +19,10 @@ $v->user = $_SESSION['user'];
 
 $masc = new Mascotas();
 $v->mascotas = $masc->getByIdCliente(intval($v->user['dni']));
-
+$t = new Turnos();
+foreach ($v->mascotas as $m) {
+    $v->turnos[$m['nombre']] = $t->getTurnosDeMascota(intval($m['id']));
+}
 $v->render();
 
 ?>
