@@ -1,6 +1,6 @@
 <?php
 
-// controllers/listaempleados.php
+// controllers/listaTurnos.php
 
 require '../fw/fw.php';
 require '../models/Turnos.php';
