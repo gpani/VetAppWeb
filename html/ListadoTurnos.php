@@ -13,10 +13,10 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
   <style>
-        .btnE {
-          left: 100px;
+        .btnEstilo {
+          padding-left: 15px;
         }
-    </style>
+  </style>
 </head>
 
 <body>
@@ -87,7 +87,9 @@
       </tbody>
     </table>
   </div>
-
+  <div class="btnEstilo">
+    <a type="button" class="btn btn-outline-info" href="./home.php">Atrás</a>
+  </div>
 </body>
 
 </html>
