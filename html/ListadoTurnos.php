@@ -11,6 +11,12 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <style>
+        .btnE {
+          left: 100px;
+        }
+    </style>
 </head>
 
 <body>
@@ -26,6 +32,10 @@
           <th>Nombre Mascota</th>
           <th>Veterinario</th>
           <th>Cliente</th>
+          <th></th>
+
+          
+
         </tr>
       </thead>
       <tbody>
@@ -36,6 +46,8 @@
             <td class="table-danger"><?= $e['nombre'] ?></td>
             <td class="table-info"><?= $e['profesional'] ?></td>
             <td class="table-active"><?= $e['dueño'] ?></td>
+            <td class="text-center"><button type="button" class="btn btn-danger">Baja</button></td>
+
           </tr>
         <?php } ?>
 
@@ -56,6 +68,8 @@
           <th>Nombre Mascota</th>
           <th>Estilista</th>
           <th>Cliente</th>
+          <th></th>
+
         </tr>
       </thead>
       <tbody>
@@ -66,6 +80,7 @@
             <td class="table-danger"><?= $e['nombre'] ?></td>
             <td class="table-info"><?= $e['profesional'] ?></td>
             <td class="table-active"><?= $e['dueño'] ?></td>
+            <td class="text-center"><button type="button" class="btn btn-danger">Baja</button></td>
           </tr>
         <?php } ?>
 

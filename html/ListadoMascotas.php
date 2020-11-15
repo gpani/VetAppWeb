@@ -26,6 +26,8 @@
           <th>Raza</th>
           <th>Fecha de Nacimiento</th>
           <th>Dueño</th>
+          <th></th>
+
         </tr>
       </thead>
       <tbody>
@@ -37,6 +39,8 @@
             <td><?= $e['raza'] ?></td>
             <td><?= $e['fecha_nac'] ?></td>
             <td> <?= $e['nombre_apellido'] ?></td>
+            <td class="text-center"><button type="button" class="btn btn-danger">Baja</button></td>
+
           </tr>
         <?php } ?>
 
