@@ -66,8 +66,7 @@
             <td><?= $t['fecha_hora'] ?></td>
             <td class="table-danger"><?= $t['tipo'] ?></td>
             <td class="table-info"><?= $t['nombre_apellido'] ?></td>
-            <td class="text-center"><button type="button" class="btn btn-danger">Baja</button></td>
-
+            <td class="text-center"><a type="button" class="btn btn-danger" href="./bajaTurno.php?idtur=<?= $t['id'] ?>">Baja</a></td>
           </tr>
         <?php } ?>
       </tbody>

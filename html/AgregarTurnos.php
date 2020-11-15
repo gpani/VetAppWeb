@@ -75,6 +75,7 @@
                 </div>
             </div>
         </form>
+        <p>Recordá que los turnos se asignan por hora, de 10 a 18.</p>
     </div>
     <script>
         $(function() {
