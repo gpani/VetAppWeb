@@ -10,6 +10,9 @@
 
 <body>
     <div id="login">
+        <?php if($this->error) { ?>
+            <h3><?= $this->error ?></h3>
+        <?php } ?> 
         <h3 class="text-center text-white pt-5">Login</h3>
         <div class="container">
             <div id="login-row" class="row justify-content-center align-items-center">
@@ -23,7 +26,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="password" class="text-info">Contraseña:</label><br>
-                                <input type="text" name="password" id="password" class="form-control">
+                                <input type="password" name="password" id="password" class="form-control">
                             </div>
                             <div class="form-group">
                                 <input type="submit" name="submit" class="btn btn-info btn-md" value="Enviar">

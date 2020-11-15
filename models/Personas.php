@@ -22,6 +22,36 @@ class Personas extends Model {
         $this->db->query("INSERT INTO `persona` (`dni`, `usuario`, `password`, `nombre_apellido`, `tipo`, `direccion`, `telefono`, `email`) VALUES ($dni, '$usuario', '$password', '$nombre_apellido', '$tipo', '$direccion', '$telefono', '$email')");
     }
 
+    public function login($usuario, $password) {
+        $usuario = $this->db->escape($usuario);
+        $password = $this->db->escape($this->db->escapeWildcards($password));
+        $this->db->query("SELECT * FROM persona WHERE usuario = '$usuario'");
+        $res = $this->db->fetchAll();
+        if (sha1($password) === $res[0]['password']) {
+            session_start();
+            $_SESSION['id'] = session_id();
+            $_SESSION['user'] = $res[0];
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function logout() {
+        session_start();
+        if (isset($_SESSION['id'])) {
+            session_destroy();
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function hay_sesion() {
+        session_start();
+        return isset($_SESSION['id']);
+    }
+
     public function listarTipos(){
         $this->db->query("SELECT tipo FROM tipo_persona");
         return $this->db->fetchAll();

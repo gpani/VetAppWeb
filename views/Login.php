@@ -5,6 +5,6 @@
 class Login extends View {
 
 	public $login;
+	public $error;
 
-	
 }
