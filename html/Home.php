@@ -65,12 +65,19 @@
             <td><?= $t['fecha_hora'] ?></td>
             <td class="table-danger"><?= $t['tipo'] ?></td>
             <td class="table-info"><?= $t['nombre_apellido'] ?></td>
-            <td class="text-center"><a type="button" class="btn btn-danger" href="./bajaTurno.php?idtur=<?= $t['id'] ?>">Baja</a></td>
+            <td class="text-center"><button type="button" class="btn btn-danger" onclick="bajaTurno(<?= $t['id'] ?>);">Baja</button></td>
           </tr>
         <?php } ?>
       </tbody>
     </table>
     <?php } ?>
+    <script>
+      function bajaTurno(idtur) {
+        if(confirm("¿Querés dar de baja este turno?")) {
+          window.location.href = './bajaTurno.php?idtur='+idtur;
+        }
+      }
+    </script>
   </main>
   <footer class="footer">
     <div class="container text-center">
