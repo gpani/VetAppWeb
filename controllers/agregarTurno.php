@@ -12,12 +12,12 @@ require '../models/Clientes.php';
 if (isset($_POST["id_profesional"])){
     require '../models/Turnos.php';
     $m = new Turnos();
-    $m->agregar(
-        intval($_POST["id_profesional"]),
-        intval($_POST["mascota"]),
-        $_POST["fecha"]
-    );
-    exit("Agregado. <a href='./home.php'>Ir al inicio.</a>");
+    $retval = $m->agregar(intval($_POST["id_profesional"]), intval($_POST["mascota"]), $_POST["fecha"]);
+    if ($retval === 0) {
+        exit("Agregado. <a href='./home.php'>Ir al inicio</a>.");
+    } else {
+        echo("<h3>$retval</h3>");
+    }
 }
 
 $v = new AgregarTurnos();
