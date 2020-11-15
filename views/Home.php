@@ -6,6 +6,6 @@ class Home extends View {
 
 	public $user;
 	public $home;
+	public $mascotas;
 
-	
 }

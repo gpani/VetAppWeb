@@ -28,7 +28,7 @@
       <div class="collapse navbar-collapse" id="collapsibleNavbar">
         <ul class="navbar-nav">
           <div class="btn-group">
-            <a class="btn btn-primary" href="./listaTurnos.php">Turnos</a>
+            <a class="btn btn-primary" href="./agregarTurno.php">Sacar Turno</a>
             <a class="btn btn-primary" href="./agregarMascotas.php">Agregar Mascota</a>
             <button type="button" class="btn btn-primary">Historial</button>
             <div class="btn-group">
@@ -47,9 +47,10 @@
     </nav>
   </header>
   <main role="main" class="container">
-
-    Test
-
+  <h1>Turnos para mis mascotas</h1>
+  <?php foreach ($this->mascotas as $m) { ?>
+    <h2><?= $m['nombre'] ?></h2>
+  <?php } ?>
   </main>
   <footer class="footer">
     <div class="container text-center">

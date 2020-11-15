@@ -26,11 +26,11 @@ class Personas extends Model {
         $usuario = $this->db->escape($usuario);
         $password = $this->db->escape($this->db->escapeWildcards($password));
         $this->db->query("SELECT * FROM persona WHERE usuario = '$usuario'");
-        $res = $this->db->fetchAll();
-        if (sha1($password) === $res[0]['password']) {
+        $respuesta = $this->db->fetchAll();
+        if (sha1($password) === $respuesta[0]['password']) {
             session_start();
             $_SESSION['id'] = session_id();
-            $_SESSION['user'] = $res[0];
+            $_SESSION['user'] = $respuesta[0];
             return true;
         } else {
             return false;

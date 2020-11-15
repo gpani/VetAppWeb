@@ -14,6 +14,10 @@ class Turnos extends Model {
 		return $this->db->fetchAll();
 	}
 
+	public function getTurnosDeMascota($id_mascota) {
+		
+	}
+
 	public function agregar($id_profesional, $id_mascota, $fecha_hora) {
 		if (!is_int($id_profesional)) {
             die("id_profesional debe ser int");

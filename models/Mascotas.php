@@ -11,7 +11,7 @@ class Mascotas extends Model {
 
 	public function getByIdCliente($id_cliente){
 		if (!is_int($id_cliente)) {
-			die("id_cliente debe ser int");
+			die("Mascotas::getByIdCliente: id_cliente debe ser int");
 		}
 		$this->db->query("SELECT nombre,especie,raza,sexo,fecha_nac FROM mascota WHERE dueño=$id_cliente");
 		return $this->db->fetchAll();

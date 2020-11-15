@@ -8,4 +8,13 @@ class Clientes extends Model {
         return $this->db->fetchAll();
     }
 
+    public function getActual(){
+        session_start();
+        if (isset($_SESSION['id']) && ($_SESSION['user']['tipo'] == 'cliente')) {
+            return $_SESSION['user'];
+        } else {
+            return null;
+        }
+    }
+
 }

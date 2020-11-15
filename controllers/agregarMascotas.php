@@ -15,13 +15,20 @@ if (isset($_POST["nombre"])){
         $_POST["raza"],
         $_POST["sexo"],
         $_POST["fecha_nac"],
-        $_POST["dueño"]);
-    exit("Agregado.");
+        intval($_POST["dueño"]));
+    exit("Agregado. <a href='./home.php'>Ir al inicio.</a>");
 }
 
-$m = new Clientes();
 $v = new AgregarMascotas();
-$v->clientes = $m->getTodos();
+
+$m = new Clientes();
+$actual = $m->getActual();
+if ($actual) { /* si esta logueado un cliente, la mascota se agrega solo a ese cliente */
+    $v->clientes = [$actual];
+} else {
+    $v->clientes = $m->getTodos();
+}
+
 $v->render();
 
 ?>
