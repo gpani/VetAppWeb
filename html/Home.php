@@ -33,14 +33,14 @@
                 Perfil
                 </button>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">Mi cuenta</a>
-                    <a class="dropdown-item" href="#">Salir</a>
+                    <a class="dropdown-item" href="#">Mi cuenta: <?= $this->user['nombre_apellido'] ?></a>
+                    <a class="dropdown-item" href="./logout.php">Salir</a>
                 </div>
             </div>
         </div> 
   
     </ul>
-  </div>  
+  </div>
 </nav>
 
 

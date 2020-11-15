@@ -10,7 +10,6 @@ $m = new Personas();
 $v = new Registrar();
 
 if(isset($_POST["nombre_apellido"])){
-    /* TODO: hashear password!! */
     $m->agregar(
         intval($_POST["dni"]), 
         $_POST["usuario"],
@@ -20,8 +19,7 @@ if(isset($_POST["nombre_apellido"])){
         $_POST["direccion"],
         $_POST["telefono"],
         $_POST["email"]);
-
-        exit("Agregado.");
+    header('location:./login.php');
 }
 
 $v->listaTipos = $m->listarTipos();
