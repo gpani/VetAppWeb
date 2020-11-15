@@ -15,13 +15,19 @@
       height: 200px;
       background: #17a2b8;
     }
+    .navbar-nav {
+
+      margin-bottom:center !important;}
+
   </style>
 </head>
 
 <body>
   <header>
     <nav class="navbar navbar-expand-sm" style="background-color: #77d6d3">
-      <a class="navbar-brand" style="font-size:38px; color:ghostwhite"  href="#">VetLali</a>
+      <a class="navbar-brand" href="#">
+        <img src="../assets/logo_size.jpg" alt="Logo" style="width:100px;">
+      </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
         <span class="navbar-toggler-icon"></span>
       </button>
