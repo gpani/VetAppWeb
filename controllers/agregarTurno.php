@@ -14,7 +14,7 @@ if (isset($_POST["id_profesional"])){
     $m = new Turnos();
     $retval = $m->agregar(intval($_POST["id_profesional"]), intval($_POST["mascota"]), $_POST["fecha"]);
     if ($retval === 0) {
-        exit("Agregado. <a href='./home.php'>Ir al inicio</a>.");
+        header('location:./home.php');
     } else {
         echo("<h3>$retval</h3>");
     }

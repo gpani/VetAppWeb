@@ -16,7 +16,7 @@ if (isset($_POST["nombre"])){
         $_POST["sexo"],
         $_POST["fecha_nac"],
         intval($_POST["dueño"]));
-    exit("Agregado. <a href='./home.php'>Ir al inicio.</a>");
+    header('location:./home.php');
 }
 
 $v = new AgregarMascotas();
