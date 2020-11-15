@@ -54,10 +54,9 @@
       <thead>
         <tr class="table-success">
           <th>Fecha</th>
-          <th>Tipo</th>
+          <th>Tipo de Turno</th>
           <th>Profesional</th>
           <th></th>
-
         </tr>
       </thead>
       <tbody>
