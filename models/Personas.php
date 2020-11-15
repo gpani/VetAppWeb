@@ -13,7 +13,7 @@ class Personas extends Model {
             die("dni debe ser int");
         }
         $usuario = $this->db->escape($usuario);
-        $password = $this->db->escape($password);
+        $password = sha1($this->db->escape($password));
         $nombre_apellido = $this->db->escape($nombre_apellido);
         $tipo = $this->db->escape($tipo);
         $direccion = $this->db->escape($direccion);
