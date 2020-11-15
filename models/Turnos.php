@@ -30,7 +30,7 @@ class Turnos extends Model {
 			join persona per on tur.id_profesional = per.dni
 			join mascota masc on masc.id = tur.id_mascota 
 			join persona due on masc.dueño = due.dni
-			where per.dni = $id_profesional order by tur.fecha_hora");
+			where per.dni = $id_profesional and fecha_hora >= CURRENT_DATE order by tur.fecha_hora");
 		return $this->db->fetchAll();
 	}
 
