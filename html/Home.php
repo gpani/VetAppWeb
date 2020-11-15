@@ -36,7 +36,7 @@
           <div class="btn-group">
             <a class="btn btn-primary" href="./agregarTurno.php">Sacar Turno</a>
             <a class="btn btn-primary" href="./agregarMascotas.php">Agregar Mascota</a>
-            <button type="button" class="btn btn-primary">Historial</button>
+            <button id="botHistTur" type="button" class="btn btn-primary">Historial</button>
             <div class="btn-group">
               <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
                 Perfil
@@ -53,36 +53,83 @@
     </nav>
   </header>
   <main role="main" class="container">
-    <h1>Turnos para mis mascotas</h1>
-    <?php foreach ($this->turnos as $k => $v) { ?>
-      <h2><?= $k ?></h2>
-      <table class="table">
-      <thead>
-        <tr class="table-success">
-          <th>Fecha</th>
-          <th>Tipo de Turno</th>
-          <th>Profesional</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <?php foreach ($v as $t) { ?>
-          <tr class="table-primary">
-            <td><?= $t['fecha_hora'] ?></td>
-            <td class="table-danger"><?= $t['tipo'] ?></td>
-            <td class="table-info"><?= $t['nombre_apellido'] ?></td>
-            <td class="text-center"><button type="button" class="btn btn-danger" onclick="bajaTurno(<?= $t['id'] ?>);">Baja</button></td>
-          </tr>
-        <?php } ?>
-      </tbody>
-    </table>
-    <?php } ?>
+    <div id="turnos">
+      <h1>Turnos para mis mascotas</h1>
+      <?php foreach ($this->turnos as $k => $v) { ?>
+        <h2><?= $k ?></h2>
+        <table class="table">
+          <thead>
+            <tr class="table-success">
+              <th>Fecha</th>
+              <th>Tipo de Turno</th>
+              <th>Profesional</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php foreach ($v as $t) { ?>
+              <tr class="table-primary">
+                <td><?= $t['fecha_hora'] ?></td>
+                <td class="table-danger"><?= $t['tipo'] ?></td>
+                <td class="table-info"><?= $t['nombre_apellido'] ?></td>
+                <td class="text-center"><button type="button" class="btn btn-danger" onclick="bajaTurno(<?= $t['id'] ?>);">Baja</button></td>
+              </tr>
+            <?php } ?>
+          </tbody>
+        </table>
+      <?php } ?>
+    </div>
+    <div id="historial">
+      <h1>Historial de mis mascotas</h1>
+      <?php foreach ($this->historial as $k => $v) { ?>
+        <h2><?= $k ?></h2>
+        <table class="table">
+          <thead>
+            <tr class="table-success">
+              <th>Fecha</th>
+              <th>Tipo de Registro</th>
+              <th>Profesional</th>
+              <th>Peso</th>
+              <th>Notas</th>
+              <th>Precio</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php foreach ($v as $t) { ?>
+              <tr class="table-primary">
+                <td><?= $t['fecha'] ?></td>
+                <td class="table-danger"><?= $t['tipo'] ?></td>
+                <td class="table-info"><?= $t['nombre_prof'] ?></td>
+                <td class="table-info"><?= $t['peso'] ?></td>
+                <td class="table-info"><?= $t['notas'] ?></td>
+                <td class="table-info"><?= $t['precio'] ?></td>
+              </tr>
+            <?php } ?>
+          </tbody>
+        </table>
+      <?php } ?>
+    </div>
     <script>
       function bajaTurno(idtur) {
-        if(confirm("¿Querés dar de baja este turno?")) {
-          window.location.href = './bajaTurno.php?idtur='+idtur;
+        if (confirm("¿Querés dar de baja este turno?")) {
+          window.location.href = './bajaTurno.php?idtur=' + idtur;
         }
       }
+
+      function verHistorial(onoff) {
+        if (onoff) {
+          $('#turnos').hide();
+          $('#historial').show();
+          $('#botHistTur').html("Ver Turnos");
+          $('#botHistTur').click(function() {verHistorial(false); });
+        } else {
+          $('#turnos').show();
+          $('#historial').hide();
+          $('#botHistTur').html("Ver Historial");
+          $('#botHistTur').click(function() {verHistorial(true); });
+        }
+      }
+      verHistorial(false);
     </script>
   </main>
   <footer class="footer">

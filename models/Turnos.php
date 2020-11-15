@@ -22,6 +22,18 @@ class Turnos extends Model {
 		return $this->db->fetchAll();
 	}
 
+	public function getTurnosDeProfesional($id_profesional) {
+		if (!is_int($id_profesional)) {
+            die("getTurnosDeProfesional: id_profesional debe ser int");
+		}
+		$this->db->query("SELECT tur.id,DATE_FORMAT(tur.fecha_hora,'%d/%m/%Y %H:%i') as fecha_hora, masc.nombre as mascota, masc.especie, masc.raza, due.nombre_apellido FROM turno tur 
+			join persona per on tur.id_profesional = per.dni
+			join mascota masc on masc.id = tur.id_mascota 
+			join persona due on masc.dueño = due.dni
+			where per.dni = $id_profesional order by tur.fecha_hora");
+		return $this->db->fetchAll();
+	}
+
 	function verificar($id_profesional, $fecha_hora) {
 		if(time() >= strtotime($fecha_hora)) {
 			return "La fecha pedida para el turno no es válida.";

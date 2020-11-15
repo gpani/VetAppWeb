@@ -12,12 +12,18 @@ if (isset($_POST["username"])) {
     require '../models/Personas.php';
     $p = new Personas();
     if ($p->login($_POST["username"], $_POST["password"])) {
-        header('location:./home.php');
+        switch($_SESSION['user']['tipo']) {
+        case 'cliente':
+            header('location:./home.php');
+            break;
+        case 'veterinario':
+        case 'estilista':
+            header('location:./homeProfesional.php');
+            break;
+        }
     } else {
         $v->error = "Login incorrecto!";
     }
 }
 
 $v->render();
-
-?>
