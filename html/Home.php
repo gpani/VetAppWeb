@@ -20,8 +20,8 @@
 
 <body>
   <header>
-    <nav class="navbar navbar-expand-sm  " style="background-color: #e3f2fd;">
-      <a class="navbar-brand" href="#">VetAppWeb</a>
+    <nav class="navbar navbar-expand-sm" style="background-color: #77d6d3">
+      <a class="navbar-brand" style="font-size:38px; color:ghostwhite"  href="#">VetLali</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
         <span class="navbar-toggler-icon"></span>
       </button>
