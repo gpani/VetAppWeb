@@ -22,7 +22,13 @@ if(isset($_POST["nombre_apellido"])){
     header('location:./login.php');
 }
 
-$v->listaTipos = $m->listarTipos();
+$p = new Personas();
+
+if ($p->hay_sesion() && ($_SESSION['user']['tipo'] == 'administrador')) {
+    $v->listaTipos = $m->listarTipos();
+} else {
+    $v->listaTipos = array(0 => array('tipo'=> 'cliente'));
+}
 $v->render();
 
 ?>

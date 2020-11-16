@@ -20,6 +20,9 @@ if (isset($_POST["username"])) {
         case 'estilista':
             header('location:./homeProfesional.php');
             break;
+        case 'administrador':
+            header('location:./registrar.php');
+            break;
         }
     } else {
         $v->error = "Login incorrecto!";

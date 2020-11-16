@@ -52,31 +52,31 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <input type="text" name="nombre_apellido" class="form-control" placeholder="Nombre y Apellido *" value="" />
+                            <input type="text" name="nombre_apellido" class="form-control" placeholder="Nombre y Apellido *" value="" required/>
                         </div>
                         <div class="form-group">
-                            <input type="text" name="email" class="form-control" placeholder="Mail *" value="" />
+                            <input type="text" name="email" class="form-control" placeholder="Mail *" value="" required/>
                         </div>
                         <div class="form-group">
                             <input type="text" name="direccion" class="form-control" placeholder="Dirección *" value="" />
                         </div>
                         <div class="form-group">
-                            <input type="text" name="dni" class="form-control" placeholder="DNI *" value="" />
+                            <input type="text" name="dni" class="form-control" placeholder="DNI *" value="" required />
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <input type="text" name="usuario" class="form-control" placeholder="Usuario*" value="" />
+                            <input type="text" name="usuario" class="form-control" placeholder="Usuario*" value="" required/>
                         </div>
                         <div class="form-group">
-                            <input type="password" name="password" class="form-control" placeholder="Contraseña *" value="" />
+                            <input type="password" name="password" class="form-control" placeholder="Contraseña *" value="" required />
                         </div>
                         <div class="form-group">
                             <input type="text" name="matricula" class="form-control" placeholder="Matricula *" value="" />
                         </div>
                         <div class="form-group">
                             <select class="form-control " name="tipo">
-                                <option class="hidden" selected disabled>Tipo de Usuario</option>
+                                <option class="hidden" disabled>Tipo de Usuario</option>
                                 <?php foreach ($this->listaTipos as $t) { ?>
                                     <option><?= $t['tipo'] ?></option>
                                 <?php } ?>
