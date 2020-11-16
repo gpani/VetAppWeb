@@ -144,7 +144,12 @@
     <script>
       function bajaTurno(idtur) {
         if (confirm("¿Querés dar de baja este turno?")) {
-          window.location.href = './bajaTurno.php?idtur=' + idtur;
+          $.post('./home.php', {
+            'modo': 'BajaTurno',
+            'id': idtur
+          }).done(function() {
+            location.reload();
+          });
         }
       }
 

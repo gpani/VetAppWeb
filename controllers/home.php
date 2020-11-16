@@ -25,6 +25,7 @@ case 'veterinario':
 }
 
 $masc = new Mascotas();
+$t = new Turnos();
 
 if (isset($_POST['modo'])) {
     switch ($_POST['modo']) {
@@ -41,6 +42,9 @@ if (isset($_POST['modo'])) {
     case 'BajaMascota':
         $masc->baja(intval($_POST['id']));
         break;
+    case 'BajaTurno':
+        $t->baja(intval($_POST['id']));
+        break;
     }
 }
 
@@ -48,7 +52,6 @@ $v = new Home();
 $v->user = $_SESSION['user'];
 
 $v->mascotas = $masc->getByIdCliente(intval($v->user['dni']));
-$t = new Turnos();
 $h = new Historial();
 foreach ($v->mascotas as $m) {
     $v->turnos[$m['nombre']] = $t->getTurnosDeMascota(intval($m['id']));
