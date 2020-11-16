@@ -75,6 +75,16 @@ class Turnos extends Model {
 		return $retval;
 	}
 
+	public function actualizar($id_turno, $fecha_hora) {
+		echo "actualizar turno $id_turno $fecha_hora";
+
+		if (!is_int($id_turno)) {
+            die("baja: id_turno debe ser int");
+		}
+		$fecha_hora = $this->db->escape($fecha_hora);
+		$this->db->query("UPDATE turno SET fecha_hora=STR_TO_DATE('$fecha_hora','%d/%m/%Y %H:%i') where id = $id_turno");
+	}
+
 	public function baja($id_turno) {
 		if (!is_int($id_turno)) {
             die("baja: id_turno debe ser int");

@@ -24,6 +24,8 @@ case 'veterinario':
 }
 
 $m = new Mascotas();
+$h = new Historial();
+$t = new Turnos();
 
 if (isset($_POST['modo'])) {
     switch ($_POST['modo']) {
@@ -54,14 +56,32 @@ if (isset($_POST['modo'])) {
     case 'BajaMascota':
         $m->baja(intval($_POST['id']));
         break;
+    case 'ModifHistorial':
+        $h->actualizar(
+            intval($_POST['id']),
+            $_POST['fecha'],
+            floatval($_POST['precio']),
+            floatval($_POST['peso']),
+            $_POST['notas']
+        );
+        break;
+    case 'BajaHistorial':
+        $h->baja(intval($_POST['id']));
+        break;
+    case 'ModifTurno':
+        $t->actualizar(
+            intval($_POST['id']),
+            $_POST['fecha_hora'],
+        );
+        break;
+    case 'BajaTurno':
+        $t->baja(intval($_POST['id']));
+        break;
     }
 }
 
 $v = new HomeAdministrador();
 $v->user = $_SESSION['user'];
-
-$h = new Historial();
-$t = new Turnos();
 
 $v->turnosPel = $t->getTurnosPeluqueria();
 $v->turnosVet = $t->getTurnosVeterinaria();

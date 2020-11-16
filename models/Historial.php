@@ -39,12 +39,35 @@ class Historial extends Model {
 			die("fecha incorrecta");
 		}
 		if (!is_float($precio)) {
-			die("precio debe ser int");
+			die("precio debe ser float");
 		}
 		if (!is_float($peso)) {
-			die("peso debe ser int");
+			die("peso debe ser float");
 		}
+		$fecha = $this->db->escape($fecha);
 		$notas = $this->db->escapeWildcards($this->db->escape($notas));
 		$this->db->query("INSERT INTO historial(id_mascota,id_profesional,fecha,precio,peso,notas) VALUES ($id_mascota,$id_profesional,'$fecha',$precio,$peso,'$notas')");
+	}
+
+	public function actualizar($id, $fecha, $precio, $peso, $notas) {
+        if (!is_int($id)) {
+            die("Historial::actualizar id debe ser int");
+		}
+		if (!is_float($precio)) {
+			die("precio debe ser float");
+		}
+		if (!is_float($peso)) {
+			die("peso debe ser float");
+		}
+		$fecha = $this->db->escapeWildcards($fecha);
+		$notas = $this->db->escapeWildcards($this->db->escape($notas));
+        $this->db->query("UPDATE historial SET fecha=DATE(STR_TO_DATE('$fecha','%d/%m/%Y')), precio=$precio, peso=$peso, notas='$notas' where id=$id");
+    }
+
+	public function baja($id) {
+		if (!is_int($id)) {
+            die("Historial::baja: id debe ser int");
+		}
+		$this->db->query("DELETE from historial where id=$id");
 	}
 }

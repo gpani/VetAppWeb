@@ -5,7 +5,7 @@
 class Mascotas extends Model {
 	
 	public function getTodos() {
-		$this->db->query("SELECT id,nombre,especie,raza,sexo,fecha_nac,persona.nombre_apellido FROM mascota INNER JOIN persona WHERE persona.dni = mascota.dueño");
+		$this->db->query("SELECT id,nombre,especie,raza,sexo,DATE_FORMAT(fecha_nac,'%d/%m/%Y') as fecha_nac,persona.nombre_apellido FROM mascota INNER JOIN persona WHERE persona.dni = mascota.dueño");
 		return $this->db->fetchAll();
 	}
 

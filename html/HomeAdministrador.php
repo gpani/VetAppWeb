@@ -96,11 +96,11 @@
         <?php foreach ($this->mascotas as $t) { ?>
           <tr class="table-primary">
             <td><?= $t['id'] ?></td>
-            <td id="nom<?=$t['id']?>" class="table-danger" contenteditable="true"><?= $t['nombre'] ?></td>
-            <td id="esp<?=$t['id']?>" class="table-info" contenteditable="true"><?= $t['especie'] ?></td>
-            <td id="raz<?=$t['id']?>" class="table-info" contenteditable="true"><?= $t['raza'] ?></td>
-            <td id="sex<?=$t['id']?>" class="table-info" contenteditable="true"><?= $t['sexo'] ?></td>
-            <td id="fec<?=$t['id']?>" class="table-info" contenteditable="true"><?= $t['fecha_nac'] ?></td>
+            <td id="mnom<?=$t['id']?>" class="table-danger" contenteditable="true"><?= $t['nombre'] ?></td>
+            <td id="mesp<?=$t['id']?>" class="table-info" contenteditable="true"><?= $t['especie'] ?></td>
+            <td id="mraz<?=$t['id']?>" class="table-info" contenteditable="true"><?= $t['raza'] ?></td>
+            <td id="msex<?=$t['id']?>" class="table-info" contenteditable="true"><?= $t['sexo'] ?></td>
+            <td id="mfec<?=$t['id']?>" class="table-info" contenteditable="true"><?= $t['fecha_nac'] ?></td>
             <td class="table-info"><?= $t['nombre_apellido'] ?></td>
             <td class="text-center"><button type="button" class="btn btn-danger" onclick="bajaMascota(<?= $t['id'] ?>);">Baja</button></td>
             <td class="text-center"><button type="button" class="btn btn-primary" onclick="updateMascota(<?= $t['id'] ?>);">Actualizar</button></td>
@@ -129,13 +129,12 @@
             <td><?= $t['id'] ?></td>
             <td class="table-danger"><?= $t['mascota'] ?></td>
             <td class="table-info"><?= $t['profesional'] ?></td>
-            <td class="table-info"><?= $t['fecha'] ?></td>
-            <td class="table-info"><?= $t['precio'] ?></td>
-            <td class="table-info"><?= $t['peso'] ?></td>
-            <td class="table-info"><?= $t['notas'] ?></td>
-            <td class="text-center"><button type="button" class="btn btn-danger" onclick="bajaTurno(<?= $t['id'] ?>);">Baja</button></td>
-            <td class="text-center"><button type="button" class="btn btn-primary">Actualizar</button></td>
-
+            <td id="hfec<?=$t['id']?>" class="table-info" contenteditable="true"><?= $t['fecha'] ?></td>
+            <td id="hpre<?=$t['id']?>" class="table-info" contenteditable="true"><?= $t['precio'] ?></td>
+            <td id="hpes<?=$t['id']?>" class="table-info" contenteditable="true"><?= $t['peso'] ?></td>
+            <td id="hnot<?=$t['id']?>" class="table-info" contenteditable="true"><?= $t['notas'] ?></td>
+            <td class="text-center"><button type="button" class="btn btn-danger" onclick="bajaHistorial(<?= $t['id'] ?>);">Baja</button></td>
+            <td class="text-center"><button type="button" class="btn btn-primary" onclick="updateHistorial(<?= $t['id'] ?>);">Actualizar</button></td>
           </tr>
         <?php } ?>
       </tbody>
@@ -157,12 +156,12 @@
         <?php foreach ($this->turnosVet as $t) { ?>
           <tr class="table-primary">
             <td><?= $t['id'] ?></td>
-            <td class="table-danger"><?= $t['fecha_hora'] ?></td>
+            <td id="tfec<?=$t['id']?>" class="table-danger" contenteditable="true"><?= $t['fecha_hora'] ?></td>
             <td class="table-info"><?= $t['profesional'] ?></td>
             <td class="table-info"><?= $t['nombre'] ?></td>
             <td class="table-info"><?= $t['dueño'] ?></td>
             <td class="text-center"><button type="button" class="btn btn-danger" onclick="bajaTurno(<?= $t['id'] ?>);">Baja</button></td>
-            <td class="text-center"><button type="button" class="btn btn-primary">Actualizar</button></td>
+            <td class="text-center"><button type="button" class="btn btn-primary" onclick="updateTurno(<?= $t['id'] ?>);">Actualizar</button></td>
           </tr>
         <?php } ?>
       </tbody>
@@ -184,12 +183,12 @@
         <?php foreach ($this->turnosPel as $t) { ?>
           <tr class="table-primary">
             <td><?= $t['id'] ?></td>
-            <td class="table-danger"><?= $t['fecha_hora'] ?></td>
+            <td id="tfec<?=$t['id']?>" class="table-danger" contenteditable="true"><?= $t['fecha_hora'] ?></td>
             <td class="table-info"><?= $t['profesional'] ?></td>
             <td class="table-info"><?= $t['nombre'] ?></td>
             <td class="table-info"><?= $t['dueño'] ?></td>
             <td class="text-center"><button type="button" class="btn btn-danger" onclick="bajaTurno(<?= $t['id'] ?>);">Baja</button></td>
-            <td class="text-center"><button type="button" class="btn btn-primary">Actualizar</button></td>
+            <td class="text-center"><button type="button" class="btn btn-primary" onclick="updateTurno(<?= $t['id'] ?>);">Actualizar</button></td>
           </tr>
         <?php } ?>
       </tbody>
@@ -241,13 +240,56 @@
       data = {
         'modo':      'ModifMascota',
         'id':        id,
-        'nombre':    $("#nom"+id).html(),
-        'especie':   $("#esp"+id).html(),
-        'raza':      $("#raz"+id).html(),
-        'sexo':      $("#sex"+id).html(),
-        'fecha_nac': $("#fec"+id).html(),
+        'nombre':    $("#mnom"+id).html(),
+        'especie':   $("#mesp"+id).html(),
+        'raza':      $("#mraz"+id).html(),
+        'sexo':      $("#msex"+id).html(),
+        'fecha_nac': $("#mfec"+id).html(),
       };
       $.post('./homeAdministrador.php', data).done(function(){
+        alert('Actualizado correctamente.');
+        location.reload();
+      });
+    }
+    function bajaHistorial(id) {
+      if (confirm('¿Confirmas la baja de este historial?')) {
+        $.post('./homeAdministrador.php',
+          {'modo': 'BajaHistorial',
+            'id': id}
+        ).done(function(){
+          location.reload();
+        });
+      }
+    }
+    function updateHistorial(id) {
+      data = {
+        'modo':   'ModifHistorial',
+        'id':     id,
+        'fecha':  $("#hfec"+id).html(),
+        'peso':   $("#hpes"+id).html(),
+        'precio': $("#hpre"+id).html(),
+        'notas':  $("#hnot"+id).html(),
+      };
+      $.post('./homeAdministrador.php', data).done(function(rsp){
+        alert('Actualizado correctamente.');
+      });
+    }
+    function bajaTurno(id) {
+      if (confirm('¿Confirmas la baja de este turno?')) {
+        $.post('./homeAdministrador.php',
+          {'modo': 'BajaTurno',
+            'id': id}
+        ).done(function(){
+        });
+      }
+    }
+    function updateTurno(id) {
+      data = {
+        'modo':       'ModifTurno',
+        'id':         id,
+        'fecha_hora': $("#tfec"+id).html(),
+      };
+      $.post('./homeAdministrador.php', data).done(function(rsp){
         alert('Actualizado correctamente.');
         location.reload();
       });
