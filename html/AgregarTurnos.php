@@ -65,7 +65,7 @@
                             <div class="form-group">
                                 <label class="control-label">Seleccione Mascota</label>
                                 <select name="mascota" class="form-control" required>
-                                    <option class="hidden" selected disabled>Seleccione mascota</option>
+                                    <option disabled>Seleccione mascota</option>
                                     <?php foreach ($this->mascotas as $e) { ?>
                                         <option value="<?= $e['id'] ?>"><?= $e['nombre'] ?></option>
                                     <?php } ?>
