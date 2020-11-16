@@ -14,8 +14,13 @@ $p = new Personas();
 if (!$p->hay_sesion()) {
     header('location:./login.php');
 }
-if (($_SESSION['user']['tipo'] == 'veterinario') ||
-    ($_SESSION['user']['tipo'] == 'estilista') ) {
+/* chequeo tipo de usuario logueado y redirecciono a su home
+segun el tipo */
+switch ($_SESSION['user']['tipo']) {
+case 'administrador':
+    header('location:./homeAdministrador.php');
+case 'estilista':
+case 'veterinario':
     header('location:./homeProfesional.php');
 }
 

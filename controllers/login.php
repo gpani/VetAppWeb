@@ -21,7 +21,7 @@ if (isset($_POST["username"])) {
             header('location:./homeProfesional.php');
             break;
         case 'administrador':
-            header('location:./registrar.php');
+            header('location:./homeAdministrador.php');
             break;
         }
     } else {

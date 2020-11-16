@@ -14,7 +14,7 @@ if (isset($_SESSION['id'])) {
             header('location:./controllers/homeProfesional.php');
             break;
         case 'administrador':
-            header('location:./controllers/registrar.php');
+            header('location:./controllers/homeAdministrador.php');
             break;
         }
 } else {
