@@ -6,7 +6,7 @@ class Historial extends Model {
 	
 	public function getHistorial() {
 		$this->db->query("SELECT h.id,masc.nombre as mascota, prof.nombre_apellido as profesional, DATE_FORMAT(fecha,'%d/%m/%Y') as fecha, precio, peso, notas FROM historial h join mascota masc on id_mascota = masc.id
-		join persona prof on prof.dni = id_profesional");		
+		join persona prof on prof.dni = id_profesional order by h.id");
         return $this->db->fetchAll();
 	}	
 

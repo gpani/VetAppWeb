@@ -5,12 +5,12 @@
 class Turnos extends Model {
 	
 	public function getTurnosVeterinaria() {
-		$this->db->query("SELECT turno.id,DATE_FORMAT(fecha_hora,'%d/%m/%Y %H:%i') as fecha_hora,prof.nombre_apellido as profesional,due.nombre_apellido as dueño,mascota.nombre FROM turno INNER JOIN mascota on mascota.id=turno.id_mascota INNER JOIN persona prof on prof.dni = turno.id_profesional INNER JOIN persona due on due.dni = mascota.dueño where prof.tipo = 'veterinario'");
+		$this->db->query("SELECT turno.id,DATE_FORMAT(fecha_hora,'%d/%m/%Y %H:%i') as fecha_hora,prof.nombre_apellido as profesional,due.nombre_apellido as dueño,mascota.nombre FROM turno INNER JOIN mascota on mascota.id=turno.id_mascota INNER JOIN persona prof on prof.dni = turno.id_profesional INNER JOIN persona due on due.dni = mascota.dueño where prof.tipo = 'veterinario' order by turno.id");
 		return $this->db->fetchAll();
 	}
 
 	public function getTurnosPeluqueria() {
-		$this->db->query("SELECT turno.id,DATE_FORMAT(fecha_hora,'%d/%m/%Y %H:%i') as fecha_hora,prof.nombre_apellido as profesional,due.nombre_apellido as dueño,mascota.nombre FROM turno INNER JOIN mascota on mascota.id=turno.id_mascota INNER JOIN persona prof on prof.dni = turno.id_profesional INNER JOIN persona due on due.dni = mascota.dueño where prof.tipo = 'estilista'");
+		$this->db->query("SELECT turno.id,DATE_FORMAT(fecha_hora,'%d/%m/%Y %H:%i') as fecha_hora,prof.nombre_apellido as profesional,due.nombre_apellido as dueño,mascota.nombre FROM turno INNER JOIN mascota on mascota.id=turno.id_mascota INNER JOIN persona prof on prof.dni = turno.id_profesional INNER JOIN persona due on due.dni = mascota.dueño where prof.tipo = 'estilista' order by turno.id");
 		return $this->db->fetchAll();
 	}
 

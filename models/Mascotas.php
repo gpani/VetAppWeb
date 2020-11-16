@@ -30,4 +30,24 @@ class Mascotas extends Model {
 		$this->db->query("INSERT INTO `mascota`(`nombre`, `especie`, `raza`, `sexo`, `fecha_nac`, `dueño`) VALUES ('$nombre','$especie','$raza', '$sexo','$fecha_nac',$id_dueño)");
 	}
 
+    public function actualizar($id, $nombre, $especie, $raza, $sexo, $fecha_nac) {
+        if (!is_int($id)) {
+            die("Mascota::actualizar id debe ser int");
+        }
+        $nombre = $this->db->escape($nombre);
+        $especie = $this->db->escape($especie);
+        $raza = $this->db->escape($raza);
+        $sexo = $this->db->escape($sexo);
+        $fecha_nac = $this->db->escape($fecha_nac);
+
+        $this->db->query("UPDATE mascota SET nombre='$nombre', especie='$especie', raza='$raza', sexo='$sexo', fecha_nac='$fecha_nac' where id=$id");
+    }
+
+	public function baja($id) {
+		if (!is_int($id)) {
+            die("Mascota::baja: id debe ser int");
+		}
+		$this->db->query("DELETE from mascota where id=$id");
+	}
+
 }

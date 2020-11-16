@@ -96,15 +96,14 @@
         <?php foreach ($this->mascotas as $t) { ?>
           <tr class="table-primary">
             <td><?= $t['id'] ?></td>
-            <td class="table-danger"><?= $t['nombre'] ?></td>
-            <td class="table-info"><?= $t['especie'] ?></td>
-            <td class="table-info"><?= $t['raza'] ?></td>
-            <td class="table-info"><?= $t['sexo'] ?></td>
-            <td class="table-info"><?= $t['fecha_nac'] ?></td>
+            <td id="nom<?=$t['id']?>" class="table-danger" contenteditable="true"><?= $t['nombre'] ?></td>
+            <td id="esp<?=$t['id']?>" class="table-info" contenteditable="true"><?= $t['especie'] ?></td>
+            <td id="raz<?=$t['id']?>" class="table-info" contenteditable="true"><?= $t['raza'] ?></td>
+            <td id="sex<?=$t['id']?>" class="table-info" contenteditable="true"><?= $t['sexo'] ?></td>
+            <td id="fec<?=$t['id']?>" class="table-info" contenteditable="true"><?= $t['fecha_nac'] ?></td>
             <td class="table-info"><?= $t['nombre_apellido'] ?></td>
-            <td class="text-center"><button type="button" class="btn btn-danger" onclick="bajaTurno(<?= $t['id'] ?>);">Baja</button></td>
-            <td class="text-center"><button type="button" class="btn btn-primary">Actualizar</button></td>
-
+            <td class="text-center"><button type="button" class="btn btn-danger" onclick="bajaMascota(<?= $t['id'] ?>);">Baja</button></td>
+            <td class="text-center"><button type="button" class="btn btn-primary" onclick="updateMascota(<?= $t['id'] ?>);">Actualizar</button></td>
           </tr>
         <?php } ?>
       </tbody>
@@ -205,7 +204,7 @@
     function bajaPersona(dni) {
       if (confirm('¿Confirmas la baja de esta persona?')) {
         $.post('./homeAdministrador.php',
-          {'modo': 'DELETE',
+          {'modo': 'BajaPersona',
             'dni': dni}
         ).done(function(){
           location.reload();
@@ -214,7 +213,7 @@
     }
     function updatePersona(dni) {
       data = {
-        'modo':             'UPDATE',
+        'modo':             'ModifPersona',
         'dni':              dni,
         'nombre_apellido':  $("#nomap"+dni).html(),
         'tipo':             $("#tipo"+dni).html(),
@@ -222,6 +221,31 @@
         'telefono':         $("#tel"+dni).html(),
         'usuario':          $("#usu"+dni).html(),
         'email':            $("#email"+dni).html(),
+      };
+      $.post('./homeAdministrador.php', data).done(function(){
+        alert('Actualizado correctamente.');
+        location.reload();
+      });
+    }
+    function bajaMascota(id) {
+      if (confirm('¿Confirmas la baja de esta mascota?')) {
+        $.post('./homeAdministrador.php',
+          {'modo': 'BajaMascota',
+            'id': id}
+        ).done(function(){
+          location.reload();
+        });
+      }
+    }
+    function updateMascota(id) {
+      data = {
+        'modo':      'ModifMascota',
+        'id':        id,
+        'nombre':    $("#nom"+id).html(),
+        'especie':   $("#esp"+id).html(),
+        'raza':      $("#raz"+id).html(),
+        'sexo':      $("#sex"+id).html(),
+        'fecha_nac': $("#fec"+id).html(),
       };
       $.post('./homeAdministrador.php', data).done(function(){
         alert('Actualizado correctamente.');
