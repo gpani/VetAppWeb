@@ -44,8 +44,8 @@
       </div>
     </nav>
   </header>
-  <?php if ($this->mensaje) { 
-    echo("
+  <?php if ($this->mensaje) {
+    echo ("
     <div id=\"mensaje\" class=\"alert alert-primary\" role=\"alert\">
     $this->mensaje
     </div>");
@@ -113,27 +113,31 @@
       <br>
       <h1>Mis registros</h1>
       <table class="table">
-          <thead>
-            <tr class="table-success">
-              <th>Fecha</th>
-              <th>Mascota</th>
-              <th>Peso</th>
-              <th>Notas</th>
-              <th>Precio</th>
+        <thead>
+          <tr class="table-success">
+            <th>Fecha</th>
+            <th>Mascota</th>
+            <th>Peso</th>
+            <th>Notas</th>
+            <th>Precio</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php foreach ($this->historial as $t) { ?>
+            <tr class="table-primary">
+              <td id="hfec<?= $t['id'] ?>" class="table-info" contenteditable="true"><?= $t['fecha'] ?></td>
+              <td class="table-info"><?= $t['nombre'] ?></td>
+              <td id="hpes<?= $t['id'] ?>" class="table-info" contenteditable="true"><?= $t['peso'] ?></td>
+              <td id="hnot<?= $t['id'] ?>" class="table-info" contenteditable="true"><?= $t['notas'] ?></td>
+              <td id="hpre<?= $t['id'] ?>" class="table-info" contenteditable="true"><?= $t['precio'] ?></td>
+              <td class="text-center"><button type="button" class="btn btn-danger" onclick="bajaHistorial(<?= $t['id'] ?>);">Baja</button></td>
+              <td class="text-center"><button type="button" class="btn btn-primary" onclick="updateHistorial(<?= $t['id'] ?>);">Actualizar</button></td>
             </tr>
-          </thead>
-          <tbody>
-            <?php foreach ($this->historial as $t) { ?>
-              <tr class="table-primary">
-                <td><?= $t['fecha'] ?></td>
-                <td class="table-info"><?= $t['nombre'] ?></td>
-                <td class="table-info"><?= $t['peso'] ?></td>
-                <td class="table-info"><?= $t['notas'] ?></td>
-                <td class="table-info"><?= $t['precio'] ?></td>
-              </tr>
-            <?php } ?>
-          </tbody>
-        </table>
+          <?php } ?>
+        </tbody>
+      </table>
     </div>
     <script>
       function verHistorial(onoff) {
@@ -154,6 +158,31 @@
         }
       }
       verHistorial(false);
+
+      function bajaHistorial(id) {
+        if (confirm('¿Confirmas la baja de este historial?')) {
+          $.post('./homeProfesional.php', {
+            'modo': 'BajaHistorial',
+            'id': id
+          }).done(function() {
+            location.reload();
+          });
+        }
+      }
+
+      function updateHistorial(id) {
+        data = {
+          'modo': 'ModifHistorial',
+          'id': id,
+          'fecha': $("#hfec" + id).html(),
+          'peso': $("#hpes" + id).html(),
+          'precio': $("#hpre" + id).html(),
+          'notas': $("#hnot" + id).html(),
+        };
+        $.post('./homeProfesional.php', data).done(function(rsp) {
+          alert('Actualizado correctamente.');
+        });
+      }
     </script>
   </main>
   <footer class="footer">

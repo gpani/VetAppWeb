@@ -27,7 +27,23 @@ $v->user = $_SESSION['user'];
 $v->mensaje = null;
 
 $h = new Historial();
-if (isset($_POST['id_mascota'])) {
+
+if (isset($_POST['modo'])) {
+    switch ($_POST['modo']) {
+    case 'ModifHistorial':
+        $h->actualizar(
+            intval($_POST['id']),
+            $_POST['fecha'],
+            floatval($_POST['precio']),
+            floatval($_POST['peso']),
+            $_POST['notas']
+        );
+        break;
+    case 'BajaHistorial':
+        $h->baja(intval($_POST['id']));
+        break;
+    }
+} else if (isset($_POST['id_mascota'])) {
     $h->agregar(
         intval($v->user['dni']),
         intval($_POST['id_mascota']),
