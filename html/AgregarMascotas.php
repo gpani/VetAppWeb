@@ -138,12 +138,14 @@
 </head>
 
 <body>
+    <header>
     <nav class="navbar navbar-expand-sm" style="background-color: #77d6d3">
         <a class="navbar-brand" href="#">
             <img src="../assets/logo_size.jpg" alt="Logo" style="width:120px;">
         </a>
     </nav>
-
+    </header>
+    <main role="main">
     <div class="container register">
         <form action="" method="post" class="form" name="formulario">
 
@@ -201,6 +203,7 @@
     <div class="btnEstilo">
     <a type="button" class="btn btn-outline-info" href="./home.php">Atrás</a>
   </div>
+  </main>
 
     <footer class="footer" style="background-color: #77d6d3">
     <div class="container text-center">

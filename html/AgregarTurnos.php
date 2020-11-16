@@ -16,15 +16,10 @@
             min-width: 200px;
             max-width: 400px;
 
-        }
+        }  
 
         .btnEstilo {
             padding-left: 15px;
-        }
-
-        .navbar-nav {
-
-            margin-bottom: center !important;
         }
     </style>
 </head>
@@ -38,6 +33,7 @@
             </a>
         </nav>
     </header>
+    <main role="main">
     <div class="container">
         <form action="" method="post" class="form" name="formulario">
             <div class="panel panel-primary">
@@ -93,6 +89,7 @@
         </form>
         <p>Recordá que los turnos se asignan por hora, de 10 a 18.</p>
     </div>
+    </main>
     <div class="btnEstilo">
         <a type="button" class="btn btn-outline-info" href="./home.php">Atrás</a>
     </div>
