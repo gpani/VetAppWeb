@@ -115,7 +115,28 @@
       </form>
       <br>
       <h1>Mis registros</h1>
-
+      <table class="table">
+          <thead>
+            <tr class="table-success">
+              <th>Fecha</th>
+              <th>Mascota</th>
+              <th>Peso</th>
+              <th>Notas</th>
+              <th>Precio</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php foreach ($this->historial as $t) { ?>
+              <tr class="table-primary">
+                <td><?= $t['fecha'] ?></td>
+                <td class="table-info"><?= $t['nombre'] ?></td>
+                <td class="table-info"><?= $t['peso'] ?></td>
+                <td class="table-info"><?= $t['notas'] ?></td>
+                <td class="table-info"><?= $t['precio'] ?></td>
+              </tr>
+            <?php } ?>
+          </tbody>
+        </table>
     </div>
     <script>
       function verHistorial(onoff) {

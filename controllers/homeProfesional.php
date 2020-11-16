@@ -21,8 +21,8 @@ $v = new HomeProfesional();
 $v->user = $_SESSION['user'];
 $v->mensaje = null;
 
+$h = new Historial();
 if (isset($_POST['id_mascota'])) {
-    $h = new Historial();
     $h->agregar(
         intval($v->user['dni']),
         intval($_POST['id_mascota']),
@@ -39,7 +39,7 @@ $m = new Mascotas();
 
 $v->turnos = $t->getTurnosDeProfesional(intval($v->user['dni']));
 $v->mascotas = $m->getTodos();
-
+$v->historial = $h->getPorProfesional(intval($v->user['dni']));
 $v->render();
 
 ?>

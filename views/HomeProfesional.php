@@ -8,5 +8,6 @@ class HomeProfesional extends View {
 	public $turnos;
 	public $mascotas;
 	public $mensaje;
+	public $historial;
 
 }

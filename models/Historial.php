@@ -17,6 +17,15 @@ class Historial extends Model {
         return $this->db->fetchAll();
 	}
 
+	public function getPorProfesional($id_profesional) {
+		if (!is_int($id_profesional)) {
+            die("id_profesional debe ser int");
+		}
+		$this->db->query("SELECT h.id,masc.nombre,DATE_FORMAT(h.fecha,'%d/%m/%Y %H:%i') as fecha,h.precio,h.peso,h.notas FROM historial h
+		join mascota masc on masc.id = h.id_mascota where id_profesional = $id_profesional order by h.fecha desc");		
+        return $this->db->fetchAll();
+	}
+
 	public function agregar($id_profesional, $id_mascota, $fecha, $precio, $peso, $notas) {
 		if (!is_int($id_mascota)) {
             die("id_mascota debe ser int");
