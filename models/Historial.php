@@ -5,9 +5,10 @@
 class Historial extends Model {
 	
 	public function getHistorial() {
-        $this->db->query("SELECT id_mascota, id_profesional, DATE_FORMAT(fecha,'%d/%m/%Y') as fecha, precio, peso, notas FROM historial ");		
+		$this->db->query("SELECT h.id,masc.nombre as mascota, prof.nombre_apellido as profesional, DATE_FORMAT(fecha,'%d/%m/%Y') as fecha, precio, peso, notas FROM historial h join mascota masc on id_mascota = masc.id
+		join persona prof on prof.dni = id_profesional");		
         return $this->db->fetchAll();
-	}
+	}	
 
 	public function getPorMascota($id_mascota) {
 		if (!is_int($id_mascota)) {

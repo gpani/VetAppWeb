@@ -4,10 +4,9 @@
 
 class HomeAdministrador extends View {
 
-	public $user;
-	public $home;
 	public $mascotas;
-	public $turnos;
+	public $turnosVet;
+	public $turnosPel;
 	public $historial;
 	public $personas;
 

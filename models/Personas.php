@@ -4,7 +4,7 @@
 class Personas extends Model {
  
     public function getTodos(){
-        $this->db->query("SELECT nombre_apellido, dni, direccion, telefono, usuario, email FROM persona");
+        $this->db->query("SELECT nombre_apellido, dni, direccion, telefono, usuario, email, tipo FROM persona");
         return $this->db->fetchAll();
     }
 

@@ -31,6 +31,12 @@ $t = new Turnos();
 $m = new Mascotas();
 $p = new Personas();
 
+$v->turnosPel = $t->getTurnosPeluqueria();
+$v->turnosVet = $t->getTurnosVeterinaria();
+$v->personas = $p->getTodos();
+$v->mascotas = $m->getTodos();
+$v->historial = $h->getHistorial();
+
 $v->render();
 
 ?>
