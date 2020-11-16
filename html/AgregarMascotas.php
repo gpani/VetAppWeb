@@ -141,7 +141,7 @@
     <header>
     <nav class="navbar navbar-expand-sm" style="background-color: #77d6d3">
         <a class="navbar-brand" href="#">
-            <img src="../assets/logo_size.jpg" alt="Logo" style="width:120px;">
+            <img src="./assets/logo_size.jpg" alt="Logo" style="width:120px;">
         </a>
     </nav>
     </header>
@@ -201,7 +201,7 @@
         </form>
     </div>
     <div class="btnEstilo">
-    <a type="button" class="btn btn-outline-info" href="./home.php">Atrás</a>
+    <a type="button" class="btn btn-outline-info" href="./homeCliente">Atrás</a>
   </div>
   </main>
 

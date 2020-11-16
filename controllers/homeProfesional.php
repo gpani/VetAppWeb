@@ -11,15 +11,15 @@ require '../models/Mascotas.php';
 
 $p = new Personas();
 if (!$p->hay_sesion()) {
-    header('location:./login.php');
+    header('location:./login');
 }
 /* chequeo tipo de usuario logueado y redirecciono a su home
 segun el tipo */
 switch ($_SESSION['user']['tipo']) {
 case 'cliente':
-    header('location:./home.php');
+    header('location:./homeCliente');
 case 'administrador':
-    header('location:./homeAdministrador.php');
+    header('location:./homeAdministrador');
 }
 
 $v = new HomeProfesional();

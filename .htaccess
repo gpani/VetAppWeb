@@ -1,0 +1,11 @@
+RewriteEngine on
+
+RewriteRule agregarMascotas controllers/agregarMascotas.php
+RewriteRule agregarTurno controllers/agregarTurno.php
+RewriteRule homeCliente controllers/home.php
+RewriteRule homeAdministrador controllers/homeAdministrador.php
+RewriteRule homeProfesional controllers/homeProfesional.php
+RewriteRule login controllers/login.php
+RewriteRule logout controllers/logout.php
+RewriteRule registrar controllers/registrar.php
+

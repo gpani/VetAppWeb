@@ -32,7 +32,7 @@
                                 <input type="submit" name="submit" class="btn btn-info btn-md" value="Enviar">
                             </div>
                             <div id="register-link" class="text-right">
-                                <a href="./registrar.php" class="text-info">Registrate</a>
+                                <a href="./registrar" class="text-info">Registrate</a>
                             </div>
                         </form>
                     </div>

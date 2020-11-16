@@ -35,7 +35,7 @@
               </button>
               <div class="dropdown-menu">
                 <a class="dropdown-item" href="#">Mi cuenta: <?= $this->user['nombre_apellido'] ?></a>
-                <a class="dropdown-item" href="./logout.php">Salir</a>
+                <a class="dropdown-item" href="./logout">Salir</a>
               </div>
             </div>
           </div>
@@ -161,7 +161,7 @@
 
       function bajaHistorial(id) {
         if (confirm('¿Confirmas la baja de este historial?')) {
-          $.post('./homeProfesional.php', {
+          $.post('./homeProfesional', {
             'modo': 'BajaHistorial',
             'id': id
           }).done(function() {
@@ -179,7 +179,7 @@
           'precio': $("#hpre" + id).html(),
           'notas': $("#hnot" + id).html(),
         };
-        $.post('./homeProfesional.php', data).done(function(rsp) {
+        $.post('./homeProfesional', data).done(function(rsp) {
           alert('Actualizado correctamente.');
         });
       }

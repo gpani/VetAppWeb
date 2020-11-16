@@ -19,7 +19,7 @@ if(isset($_POST["nombre_apellido"])){
         $_POST["direccion"],
         $_POST["telefono"],
         $_POST["email"]);
-    header('location:./login.php');
+    header('location:./login');
 }
 
 $p = new Personas();

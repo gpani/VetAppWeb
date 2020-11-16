@@ -7,18 +7,18 @@ if (isset($_SESSION['id'])) {
     inicio sesion, lo mando a la aplicacion */
     switch($_SESSION['user']['tipo']) {
         case 'cliente':
-            header('location:./controllers/home.php');
+            header('location:./homeCliente');
             break;
         case 'veterinario':
         case 'estilista':
-            header('location:./controllers/homeProfesional.php');
+            header('location:./homeProfesional');
             break;
         case 'administrador':
-            header('location:./controllers/homeAdministrador.php');
+            header('location:./homeAdministrador');
             break;
         }
 } else {
     /* si no existe el identificador, lo mando al form de login */
-    header('location:./controllers/login.php');
+    header('location:./login');
 }
-?>
+?>  

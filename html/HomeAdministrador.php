@@ -28,14 +28,14 @@
       <div class="collapse navbar-collapse" id="collapsibleNavbar">
         <ul class="navbar-nav">
           <div class="btn-group">
-            <a id="botHistTur" type="button" class="btn btn-primary" href="./registrar.php">Nuevo usuario</a>
+            <a id="botHistTur" type="button" class="btn btn-primary" href="./registrar">Nuevo usuario</a>
             <div class="btn-group">
               <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
                 Perfil
               </button>
               <div class="dropdown-menu">
                 <a class="dropdown-item" href="#">Mi cuenta: <?= $this->user['nombre_apellido'] ?></a>
-                <a class="dropdown-item" href="./logout.php">Salir</a>
+                <a class="dropdown-item" href="./logout">Salir</a>
               </div>
             </div>
           </div>
@@ -202,7 +202,7 @@
   <script>
     function bajaPersona(dni) {
       if (confirm('¿Confirmas la baja de esta persona?')) {
-        $.post('./homeAdministrador.php',
+        $.post('./homeAdministrador',
           {'modo': 'BajaPersona',
             'dni': dni}
         ).done(function(){
@@ -221,14 +221,14 @@
         'usuario':          $("#usu"+dni).html(),
         'email':            $("#email"+dni).html(),
       };
-      $.post('./homeAdministrador.php', data).done(function(){
+      $.post('./homeAdministrador', data).done(function(){
         alert('Actualizado correctamente.');
         location.reload();
       });
     }
     function bajaMascota(id) {
       if (confirm('¿Confirmas la baja de esta mascota?')) {
-        $.post('./homeAdministrador.php',
+        $.post('./homeAdministrador',
           {'modo': 'BajaMascota',
             'id': id}
         ).done(function(){
@@ -246,14 +246,14 @@
         'sexo':      $("#msex"+id).html(),
         'fecha_nac': $("#mfec"+id).html(),
       };
-      $.post('./homeAdministrador.php', data).done(function(){
+      $.post('./homeAdministrador', data).done(function(){
         alert('Actualizado correctamente.');
         location.reload();
       });
     }
     function bajaHistorial(id) {
       if (confirm('¿Confirmas la baja de este historial?')) {
-        $.post('./homeAdministrador.php',
+        $.post('./homeAdministrador',
           {'modo': 'BajaHistorial',
             'id': id}
         ).done(function(){
@@ -270,13 +270,13 @@
         'precio': $("#hpre"+id).html(),
         'notas':  $("#hnot"+id).html(),
       };
-      $.post('./homeAdministrador.php', data).done(function(rsp){
+      $.post('./homeAdministrador', data).done(function(rsp){
         alert('Actualizado correctamente.');
       });
     }
     function bajaTurno(id) {
       if (confirm('¿Confirmas la baja de este turno?')) {
-        $.post('./homeAdministrador.php',
+        $.post('./homeAdministrador',
           {'modo': 'BajaTurno',
             'id': id}
         ).done(function(){
@@ -289,7 +289,7 @@
         'id':         id,
         'fecha_hora': $("#tfec"+id).html(),
       };
-      $.post('./homeAdministrador.php', data).done(function(rsp){
+      $.post('./homeAdministrador', data).done(function(rsp){
         alert('Actualizado correctamente.');
         location.reload();
       });

@@ -27,7 +27,7 @@
   <header>
     <nav class="navbar navbar-expand-sm" style="background-color: #77d6d3">
       <a class="navbar-brand" href="#">
-        <img src="../assets/logo_size.jpg" alt="Logo" style="width:120px;">
+        <img src="./assets/logo_size.jpg" alt="Logo" style="width:120px;">
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
         <span class="navbar-toggler-icon"></span>
@@ -35,8 +35,8 @@
       <div class="collapse navbar-collapse" id="collapsibleNavbar">
         <ul class="navbar-nav">
           <div class="btn-group btn-group-lg">
-            <a class="btn btn-primary" href="./agregarTurno.php">Sacar Turno</a>
-            <a class="btn btn-primary" href="./agregarMascotas.php">Agregar Mascota</a>
+            <a class="btn btn-primary" href="./agregarTurno">Sacar Turno</a>
+            <a class="btn btn-primary" href="./agregarMascotas">Agregar Mascota</a>
             <button id="botHistTur" type="button" class="btn btn-primary">Historial</button>
             <div class="btn-group btn-group-lg">
               <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
@@ -44,7 +44,7 @@
               </button>
               <div class="dropdown-menu">
                 <a class="dropdown-item" href="#">Mi cuenta: <?= $this->user['nombre_apellido'] ?></a>
-                <a class="dropdown-item" href="./logout.php">Salir</a>
+                <a class="dropdown-item" href="./logout">Salir</a>
               </div>
             </div>
           </div>
@@ -141,7 +141,7 @@
     <script>
       function bajaTurno(idtur) {
         if (confirm("¿Querés dar de baja este turno?")) {
-          $.post('./home.php', {
+          $.post('./homeCliente', {
             'modo': 'BajaTurno',
             'id': idtur
           }).done(function() {
@@ -171,7 +171,7 @@
 
       function bajaMascota(id) {
         if (confirm('¿Confirmas la baja de esta mascota?')) {
-          $.post('./home.php', {
+          $.post('./homeCliente', {
             'modo': 'BajaMascota',
             'id': id
           }).done(function() {
@@ -190,7 +190,7 @@
           'sexo': $("#msex" + id).html(),
           'fecha_nac': $("#mfec" + id).html(),
         };
-        $.post('./home.php', data).done(function(rsp) {
+        $.post('./homeCliente', data).done(function(rsp) {
           alert('Actualizado correctamente.');
           location.reload();
         });

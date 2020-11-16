@@ -12,16 +12,16 @@ require '../models/Historial.php';
 $p = new Personas();
 
 if (!$p->hay_sesion()) {
-    header('location:./login.php');
+    header('location:./login');
 }
 /* chequeo tipo de usuario logueado y redirecciono a su home
 segun el tipo */
 switch ($_SESSION['user']['tipo']) {
 case 'administrador':
-    header('location:./homeAdministrador.php');
+    header('location:./homeAdministrador');
 case 'estilista':
 case 'veterinario':
-    header('location:./homeProfesional.php');
+    header('location:./homeProfesional');
 }
 
 $masc = new Mascotas();

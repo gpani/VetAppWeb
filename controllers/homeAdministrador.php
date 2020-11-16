@@ -13,14 +13,14 @@ require '../models/Mascotas.php';
  y redirecciono a su home si es necesario */
 $p = new Personas();
 if (!$p->hay_sesion()) {
-    header('location:./login.php');
+    header('location:./login');
 }
 switch ($_SESSION['user']['tipo']) {
 case 'cliente':
-    header('location:./home.php');
+    header('location:./homeCliente');
 case 'estilista':
 case 'veterinario':
-    header('location:./homeProfesional.php');
+    header('location:./homeProfesional');
 }
 
 $m = new Mascotas();

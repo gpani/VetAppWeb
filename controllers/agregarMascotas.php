@@ -16,7 +16,7 @@ if (isset($_POST["nombre"])){
         $_POST["sexo"],
         $_POST["fecha_nac"],
         intval($_POST["dueño"]));
-    header('location:./home.php');
+    header('location:./homeCliente');
 }
 
 $v = new AgregarMascotas();

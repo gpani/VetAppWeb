@@ -14,14 +14,14 @@ if (isset($_POST["username"])) {
     if ($p->login($_POST["username"], $_POST["password"])) {
         switch($_SESSION['user']['tipo']) {
         case 'cliente':
-            header('location:./home.php');
+            header('location:./homeCliente');
             break;
         case 'veterinario':
         case 'estilista':
-            header('location:./homeProfesional.php');
+            header('location:./homeProfesional');
             break;
         case 'administrador':
-            header('location:./homeAdministrador.php');
+            header('location:./homeAdministrador');
             break;
         }
     } else {
