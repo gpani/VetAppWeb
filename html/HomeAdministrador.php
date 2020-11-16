@@ -28,7 +28,7 @@
       <div class="collapse navbar-collapse" id="collapsibleNavbar">
         <ul class="navbar-nav">
           <div class="btn-group">
-          <a id="botHistTur" type="button" class="btn btn-primary" href="./registrar.php">Nuevo usuario</a>
+            <a id="botHistTur" type="button" class="btn btn-primary" href="./registrar.php">Nuevo usuario</a>
             <div class="btn-group">
               <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
                 Perfil
@@ -45,88 +45,33 @@
     </nav>
   </header>
   <main role="main" class="container">
-    <h1>Turnos Veterinaria</h1>
-    <table class="table">
-      <thead>
-        <tr class="table-success">
-        <th>ID</th>
-        <th>Fecha</th>
-        <th>Profesional</th>
-        <th>Mascota</th>
-        <th>Dueño</th>
-          <th></th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <?php foreach ($this->turnosVet as $t) { ?>
-          <tr class="table-primary">
-            <td><?= $t['id'] ?></td>
-            <td class="table-danger"><?= $t['fecha_hora'] ?></td>
-            <td class="table-info"><?= $t['profesional'] ?></td>
-            <td class="table-info"><?= $t['nombre'] ?></td>
-            <td class="table-info"><?= $t['dueño'] ?></td>
-            <td class="text-center"><button type="button" class="btn btn-danger" onclick="bajaTurno(<?= $t['id'] ?>);">Baja</button></td>
-            <td class="text-center"><button type="button" class="btn btn-primary">Editar</button></td>
-
-          </tr>
-        <?php } ?>
-      </tbody>
-    </table>
-    <h1>Turnos Peluquería</h1>
-    <table class="table">
-      <thead>
-        <tr class="table-success">
-        <th>ID</th>
-        <th>Fecha</th>
-        <th>Profesional</th>
-        <th>Mascota</th>
-        <th>Dueño</th>
-          <th></th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <?php foreach ($this->turnosPel as $t) { ?>
-          <tr class="table-primary">
-            <td><?= $t['id'] ?></td>
-            <td class="table-danger"><?= $t['fecha_hora'] ?></td>
-            <td class="table-info"><?= $t['profesional'] ?></td>
-            <td class="table-info"><?= $t['nombre'] ?></td>
-            <td class="table-info"><?= $t['dueño'] ?></td>
-            <td class="text-center"><button type="button" class="btn btn-danger" onclick="bajaTurno(<?= $t['id'] ?>);">Baja</button></td>
-            <td class="text-center"><button type="button" class="btn btn-primary">Editar</button></td>
-          </tr>
-        <?php } ?>
-      </tbody>
-    </table>
     <h1>Personas</h1>
     <table class="table">
       <thead>
         <tr class="table-success">
-        <th>DNI</th>
-        <th>Nombre y Apellido</th>
-        <th>Tipo</th>
-        <th>Dirección</th>
-        <th>Teléfono</th>
-        <th>Usuario</th>
-        <th>email</th>
-        <th></th>
-        <th></th>
+          <th>DNI</th>
+          <th>Nombre y Apellido</th>
+          <th>Tipo</th>
+          <th>Dirección</th>
+          <th>Teléfono</th>
+          <th>Usuario</th>
+          <th>email</th>
+          <th></th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
         <?php foreach ($this->personas as $t) { ?>
-          <tr class="table-primary">
+          <tr class="table-primary" id="<?=$t['dni']?>">
             <td><?= $t['dni'] ?></td>
-            <td class="table-danger"><?= $t['nombre_apellido'] ?></td>
-            <td class="table-info"><?= $t['tipo'] ?></td>
-            <td class="table-info"><?= $t['direccion'] ?></td>
-            <td class="table-info"><?= $t['telefono'] ?></td>
-            <td class="table-info"><?= $t['usuario'] ?></td>
-            <td class="table-info"><?= $t['email'] ?></td>
-            <td class="text-center"><button type="button" class="btn btn-danger" onclick="bajaTurno(<?= $t['id'] ?>);">Baja</button></td>
-            <td class="text-center"><button type="button" class="btn btn-primary">Editar</button></td>
+            <td id="nomap<?=$t['dni']?>" class="table-danger" contenteditable="true"><?= $t['nombre_apellido'] ?></td>
+            <td id="tipo<?=$t['dni']?>" class="table-info" contenteditable="true"><?= $t['tipo'] ?></td>
+            <td id="dir<?=$t['dni']?>" class="table-info" contenteditable="true"><?= $t['direccion'] ?></td>
+            <td id="tel<?=$t['dni']?>" class="table-info" contenteditable="true"><?= $t['telefono'] ?></td>
+            <td id="usu<?=$t['dni']?>" class="table-info" contenteditable="true"><?= $t['usuario'] ?></td>
+            <td id="email<?=$t['dni']?>" class="table-info" contenteditable="true"><?= $t['email'] ?></td>
+            <td class="text-center"><button type="button" class="btn btn-danger" onclick="bajaPersona(<?= $t['dni'] ?>);">Baja</button></td>
+            <td class="text-center"><button type="button" class="btn btn-primary" onclick="updatePersona(<?= $t['dni'] ?>);">Actualizar</button></td>
           </tr>
         <?php } ?>
       </tbody>
@@ -135,13 +80,13 @@
     <table class="table">
       <thead>
         <tr class="table-success">
-        <th>id</th>
-        <th>Nombre</th>
-        <th>Especie</th>
-        <th>Raza</th>
-        <th>Sexo</th>
-        <th>Fecha de Nacimiento</th>
-        <th>Dueño</th>
+          <th>id</th>
+          <th>Nombre</th>
+          <th>Especie</th>
+          <th>Raza</th>
+          <th>Sexo</th>
+          <th>Fecha de Nacimiento</th>
+          <th>Dueño</th>
           <th></th>
           <th></th>
 
@@ -158,7 +103,7 @@
             <td class="table-info"><?= $t['fecha_nac'] ?></td>
             <td class="table-info"><?= $t['nombre_apellido'] ?></td>
             <td class="text-center"><button type="button" class="btn btn-danger" onclick="bajaTurno(<?= $t['id'] ?>);">Baja</button></td>
-            <td class="text-center"><button type="button" class="btn btn-primary">Editar</button></td>
+            <td class="text-center"><button type="button" class="btn btn-primary">Actualizar</button></td>
 
           </tr>
         <?php } ?>
@@ -168,13 +113,13 @@
     <table class="table">
       <thead>
         <tr class="table-success">
-        <th>id</th>
-        <th>Mascota</th>
-        <th>Profesional</th>
-        <th>Fecha</th>
-        <th>Precio</th>
-        <th>Peso</th>
-        <th>Notas</th>
+          <th>id</th>
+          <th>Mascota</th>
+          <th>Profesional</th>
+          <th>Fecha</th>
+          <th>Precio</th>
+          <th>Peso</th>
+          <th>Notas</th>
           <th></th>
           <th></th>
         </tr>
@@ -190,8 +135,62 @@
             <td class="table-info"><?= $t['peso'] ?></td>
             <td class="table-info"><?= $t['notas'] ?></td>
             <td class="text-center"><button type="button" class="btn btn-danger" onclick="bajaTurno(<?= $t['id'] ?>);">Baja</button></td>
-            <td class="text-center"><button type="button" class="btn btn-primary">Editar</button></td>
+            <td class="text-center"><button type="button" class="btn btn-primary">Actualizar</button></td>
 
+          </tr>
+        <?php } ?>
+      </tbody>
+    </table>
+    <h1>Turnos Veterinaria</h1>
+    <table class="table">
+      <thead>
+        <tr class="table-success">
+          <th>ID</th>
+          <th>Fecha</th>
+          <th>Profesional</th>
+          <th>Mascota</th>
+          <th>Dueño</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php foreach ($this->turnosVet as $t) { ?>
+          <tr class="table-primary">
+            <td><?= $t['id'] ?></td>
+            <td class="table-danger"><?= $t['fecha_hora'] ?></td>
+            <td class="table-info"><?= $t['profesional'] ?></td>
+            <td class="table-info"><?= $t['nombre'] ?></td>
+            <td class="table-info"><?= $t['dueño'] ?></td>
+            <td class="text-center"><button type="button" class="btn btn-danger" onclick="bajaTurno(<?= $t['id'] ?>);">Baja</button></td>
+            <td class="text-center"><button type="button" class="btn btn-primary">Actualizar</button></td>
+          </tr>
+        <?php } ?>
+      </tbody>
+    </table>
+    <h1>Turnos Peluquería</h1>
+    <table class="table">
+      <thead>
+        <tr class="table-success">
+          <th>ID</th>
+          <th>Fecha</th>
+          <th>Profesional</th>
+          <th>Mascota</th>
+          <th>Dueño</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php foreach ($this->turnosPel as $t) { ?>
+          <tr class="table-primary">
+            <td><?= $t['id'] ?></td>
+            <td class="table-danger"><?= $t['fecha_hora'] ?></td>
+            <td class="table-info"><?= $t['profesional'] ?></td>
+            <td class="table-info"><?= $t['nombre'] ?></td>
+            <td class="table-info"><?= $t['dueño'] ?></td>
+            <td class="text-center"><button type="button" class="btn btn-danger" onclick="bajaTurno(<?= $t['id'] ?>);">Baja</button></td>
+            <td class="text-center"><button type="button" class="btn btn-primary">Actualizar</button></td>
           </tr>
         <?php } ?>
       </tbody>
@@ -202,6 +201,34 @@
       <span class="text-muted">Copyright © 2020 VetAppWeb by Gessi.</span>
     </div>
   </footer>
+  <script>
+    function bajaPersona(dni) {
+      if (confirm('¿Confirmas la baja de esta persona?')) {
+        $.post('./homeAdministrador.php',
+          {'modo': 'DELETE',
+            'dni': dni}
+        ).done(function(){
+          location.reload();
+        });
+      }
+    }
+    function updatePersona(dni) {
+      data = {
+        'modo':             'UPDATE',
+        'dni':              dni,
+        'nombre_apellido':  $("#nomap"+dni).html(),
+        'tipo':             $("#tipo"+dni).html(),
+        'direccion':        $("#dir"+dni).html(),
+        'telefono':         $("#tel"+dni).html(),
+        'usuario':          $("#usu"+dni).html(),
+        'email':            $("#email"+dni).html(),
+      };
+      $.post('./homeAdministrador.php', data).done(function(){
+        alert('Actualizado correctamente.');
+        location.reload();
+      });
+    }
+  </script>
 </body>
 
 </html>

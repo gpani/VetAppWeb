@@ -57,4 +57,24 @@ class Personas extends Model {
         return $this->db->fetchAll();
     }
 
+    public function actualizar($dni, $nombre_apellido, $tipo, $direccion, $telefono, $usuario, $email) {
+        if (!is_int($dni)) {
+            die("dni debe ser int");
+        }
+        $nombre_apellido = $this->db->escape($nombre_apellido);
+        $tipo = $this->db->escape($tipo);
+        $direccion = $this->db->escape($direccion);
+        $telefono = $this->db->escape($telefono);
+        $usuario = $this->db->escape($usuario);
+        $email = $this->db->escape($email);
+
+        $this->db->query("UPDATE persona SET nombre_apellido='$nombre_apellido', tipo='$tipo', direccion='$direccion', telefono='$telefono', usuario='$usuario', email='$email' where dni=$dni");
+    }
+
+	public function baja($dni) {
+		if (!is_int($dni)) {
+            die("baja: dni debe ser int");
+		}
+		$this->db->query("DELETE from persona where dni=$dni");
+	}
 }

@@ -23,13 +23,31 @@ case 'veterinario':
     header('location:./homeProfesional.php');
 }
 
+if (isset($_POST['modo'])) {
+    switch ($_POST['modo']) {
+    case 'UPDATE':
+        $p->actualizar(
+            intval($_POST['dni']),
+            $_POST['nombre_apellido'],
+            $_POST['tipo'],
+            $_POST['direccion'],
+            $_POST['telefono'],
+            $_POST['usuario'],
+            $_POST['email']
+        );
+        break;
+    case 'DELETE':
+        $p->baja(intval($_POST['dni']));
+        break;
+    }
+}
+
 $v = new HomeAdministrador();
 $v->user = $_SESSION['user'];
 
 $h = new Historial();
 $t = new Turnos();
 $m = new Mascotas();
-$p = new Personas();
 
 $v->turnosPel = $t->getTurnosPeluqueria();
 $v->turnosVet = $t->getTurnosVeterinaria();

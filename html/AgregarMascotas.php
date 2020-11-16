@@ -175,7 +175,7 @@
                                     </div>
                                     <div class="form-group">
                                         <select name="sexo" class="form-control" required>
-                                            <option class="hidden" selected disabled>Sexo</option>
+                                            <option class="hidden" disabled>Sexo</option>
                                             <option value="F">F</option>
                                             <option value="M">M</option>
                                         </select>
@@ -183,7 +183,7 @@
 
                                     <div class="form-group">
                                         <select name="dueño" class="form-control" required>
-                                            <option class="hidden" selected disabled>Dueño</option>
+                                            <option class="hidden" disabled>Dueño</option>
                                             <?php foreach ($this->clientes as $e) { ?>
                                                 <option value="<?= $e['dni'] ?>"><?= $e['nombre_apellido'] ?></option>
                                             <?php } ?>
