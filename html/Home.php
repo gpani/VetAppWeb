@@ -15,10 +15,11 @@
       height: 200px;
       background: #17a2b8;
     }
+
     .navbar-nav {
 
-      margin-bottom:center !important;}
-
+      margin-bottom: center !important;
+    }
   </style>
 </head>
 
@@ -84,6 +85,33 @@
       <?php } ?>
     </div>
     <div id="historial">
+      <h1>Mis mascotas</h1>
+      <table class="table">
+        <thead>
+          <tr class="table-success">
+            <th>Nombre</th>
+            <th>Especie</th>
+            <th>Raza</th>
+            <th>Sexo</th>
+            <th>Fecha de Nacimiento</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php foreach ($this->mascotas as $t) { ?>
+            <tr class="table-primary">
+              <td id="mnom<?= $t['id'] ?>" class="table-danger" contenteditable="true"><?= $t['nombre'] ?></td>
+              <td id="mesp<?= $t['id'] ?>" class="table-info" contenteditable="true"><?= $t['especie'] ?></td>
+              <td id="mraz<?= $t['id'] ?>" class="table-info" contenteditable="true"><?= $t['raza'] ?></td>
+              <td id="msex<?= $t['id'] ?>" class="table-info" contenteditable="true"><?= $t['sexo'] ?></td>
+              <td id="mfec<?= $t['id'] ?>" class="table-info" contenteditable="true"><?= $t['fecha_nac'] ?></td>
+              <td class="text-center"><button type="button" class="btn btn-danger" onclick="bajaMascota(<?= $t['id'] ?>);">Baja</button></td>
+              <td class="text-center"><button type="button" class="btn btn-primary" onclick="updateMascota(<?= $t['id'] ?>);">Actualizar</button></td>
+            </tr>
+          <?php } ?>
+        </tbody>
+      </table>
       <h1>Historial de mis mascotas</h1>
       <?php foreach ($this->historial as $k => $v) { ?>
         <h2><?= $k ?></h2>
@@ -125,15 +153,46 @@
           $('#turnos').hide();
           $('#historial').show();
           $('#botHistTur').html("Ver Turnos");
-          $('#botHistTur').click(function() {verHistorial(false); });
+          $('#botHistTur').click(function() {
+            verHistorial(false);
+          });
         } else {
           $('#turnos').show();
           $('#historial').hide();
           $('#botHistTur').html("Ver Historial");
-          $('#botHistTur').click(function() {verHistorial(true); });
+          $('#botHistTur').click(function() {
+            verHistorial(true);
+          });
         }
       }
       verHistorial(false);
+
+      function bajaMascota(id) {
+        if (confirm('¿Confirmas la baja de esta mascota?')) {
+          $.post('./home.php', {
+            'modo': 'BajaMascota',
+            'id': id
+          }).done(function() {
+            location.reload();
+          });
+        }
+      }
+
+      function updateMascota(id) {
+        data = {
+          'modo': 'ModifMascota',
+          'id': id,
+          'nombre': $("#mnom" + id).html(),
+          'especie': $("#mesp" + id).html(),
+          'raza': $("#mraz" + id).html(),
+          'sexo': $("#msex" + id).html(),
+          'fecha_nac': $("#mfec" + id).html(),
+        };
+        $.post('./home.php', data).done(function(rsp) {
+          alert('Actualizado correctamente.');
+          location.reload();
+        });
+      }
     </script>
   </main>
   <footer class="footer" style="background-color: #77d6d3">

@@ -13,7 +13,7 @@ class Mascotas extends Model {
 		if (!is_int($id_cliente)) {
 			die("Mascotas::getByIdCliente: id_cliente debe ser int");
 		}
-		$this->db->query("SELECT id,nombre,especie,raza,sexo,fecha_nac FROM mascota WHERE dueño=$id_cliente");
+		$this->db->query("SELECT id,nombre,especie,raza,sexo,DATE_FORMAT(fecha_nac,'%d/%m/%Y') as fecha_nac FROM mascota WHERE dueño=$id_cliente");
 		return $this->db->fetchAll();
 
 	}

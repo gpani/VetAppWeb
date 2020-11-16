@@ -24,10 +24,29 @@ case 'veterinario':
     header('location:./homeProfesional.php');
 }
 
+$masc = new Mascotas();
+
+if (isset($_POST['modo'])) {
+    switch ($_POST['modo']) {
+    case 'ModifMascota':
+        $masc->actualizar(
+            intval($_POST['id']),
+            $_POST['nombre'],
+            $_POST['especie'],
+            $_POST['raza'],
+            $_POST['sexo'],
+            $_POST['fecha_nac']
+        );
+        break;
+    case 'BajaMascota':
+        $masc->baja(intval($_POST['id']));
+        break;
+    }
+}
+
 $v = new Home();
 $v->user = $_SESSION['user'];
 
-$masc = new Mascotas();
 $v->mascotas = $masc->getByIdCliente(intval($v->user['dni']));
 $t = new Turnos();
 $h = new Historial();
