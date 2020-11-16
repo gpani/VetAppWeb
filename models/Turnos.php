@@ -34,14 +34,18 @@ class Turnos extends Model {
 		return $this->db->fetchAll();
 	}
 
+	/* funcion que verifica si un profesional está disponible en un horario */
 	function verificar($id_profesional, $fecha_hora) {
+		/* si el turno es para antes de este momento, error */
 		if(time() >= strtotime($fecha_hora)) {
 			return "La fecha pedida para el turno no es válida.";
 		}
+		/* el turno debe estar entre las 10 y las 18 */
 		$dt = new DateTime($fecha_hora);
 		if (($dt->format("H") > 18) || ($dt->format("H") < 10)) {
 			return "La hora del turno está fuera del horario de atención.";
 		}
+		/* finalmente reviso que no haya un turno con ese profesional a esa hora en la bdd */
 		$this->db->query("SELECT count(*) as cantidad FROM turno where id_profesional = $id_profesional and fecha_hora = '$fecha_hora'");
 		$respuesta = $this->db->fetchAll();
 		if(intval($respuesta[0]['cantidad']) == 0) {
@@ -51,6 +55,7 @@ class Turnos extends Model {
 		}
 	}
 
+	/* funcion para agregar un turno verificando que esté disponible */
 	public function agregar($id_profesional, $id_mascota, $fecha_hora) {
 		if (!is_int($id_profesional)) {
             die("id_profesional debe ser int");
@@ -60,10 +65,11 @@ class Turnos extends Model {
 		}
 		$fecha_hora = $this->db->escape($fecha_hora);
 		$dt = new DateTime($fecha_hora);
-		$dt->setTime($dt->format("H"), 0, 0, 0);
+		$dt->setTime($dt->format("H"), 0, 0, 0); /* solo considero la hora para el turno */
 		$fecha_hora = strftime("%Y/%m/%d %H:%M", $dt->getTimestamp());
 		$retval = $this->verificar($id_profesional, $fecha_hora);
 		if ($retval === 0) {
+			/* el horario está disponible, asigno el turno */
 			$this->db->query("INSERT INTO `turno`(`id_profesional`, `id_mascota`, `fecha_hora`) VALUES ($id_profesional,$id_mascota,'$fecha_hora')");
 		}
 		return $retval;
