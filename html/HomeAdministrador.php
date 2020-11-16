@@ -55,6 +55,7 @@
         <th>Mascota</th>
         <th>Dueño</th>
           <th></th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -66,6 +67,8 @@
             <td class="table-info"><?= $t['nombre'] ?></td>
             <td class="table-info"><?= $t['dueño'] ?></td>
             <td class="text-center"><button type="button" class="btn btn-danger" onclick="bajaTurno(<?= $t['id'] ?>);">Baja</button></td>
+            <td class="text-center"><button type="button" class="btn btn-primary">Editar</button></td>
+
           </tr>
         <?php } ?>
       </tbody>
@@ -80,6 +83,7 @@
         <th>Mascota</th>
         <th>Dueño</th>
           <th></th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -91,6 +95,7 @@
             <td class="table-info"><?= $t['nombre'] ?></td>
             <td class="table-info"><?= $t['dueño'] ?></td>
             <td class="text-center"><button type="button" class="btn btn-danger" onclick="bajaTurno(<?= $t['id'] ?>);">Baja</button></td>
+            <td class="text-center"><button type="button" class="btn btn-primary">Editar</button></td>
           </tr>
         <?php } ?>
       </tbody>
@@ -106,7 +111,8 @@
         <th>Teléfono</th>
         <th>Usuario</th>
         <th>email</th>
-          <th></th>
+        <th></th>
+        <th></th>
         </tr>
       </thead>
       <tbody>
@@ -120,6 +126,7 @@
             <td class="table-info"><?= $t['usuario'] ?></td>
             <td class="table-info"><?= $t['email'] ?></td>
             <td class="text-center"><button type="button" class="btn btn-danger" onclick="bajaTurno(<?= $t['id'] ?>);">Baja</button></td>
+            <td class="text-center"><button type="button" class="btn btn-primary">Editar</button></td>
           </tr>
         <?php } ?>
       </tbody>
@@ -136,6 +143,8 @@
         <th>Fecha de Nacimiento</th>
         <th>Dueño</th>
           <th></th>
+          <th></th>
+
         </tr>
       </thead>
       <tbody>
@@ -149,6 +158,8 @@
             <td class="table-info"><?= $t['fecha_nac'] ?></td>
             <td class="table-info"><?= $t['nombre_apellido'] ?></td>
             <td class="text-center"><button type="button" class="btn btn-danger" onclick="bajaTurno(<?= $t['id'] ?>);">Baja</button></td>
+            <td class="text-center"><button type="button" class="btn btn-primary">Editar</button></td>
+
           </tr>
         <?php } ?>
       </tbody>
@@ -165,6 +176,7 @@
         <th>Peso</th>
         <th>Notas</th>
           <th></th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -178,6 +190,8 @@
             <td class="table-info"><?= $t['peso'] ?></td>
             <td class="table-info"><?= $t['notas'] ?></td>
             <td class="text-center"><button type="button" class="btn btn-danger" onclick="bajaTurno(<?= $t['id'] ?>);">Baja</button></td>
+            <td class="text-center"><button type="button" class="btn btn-primary">Editar</button></td>
+
           </tr>
         <?php } ?>
       </tbody>
