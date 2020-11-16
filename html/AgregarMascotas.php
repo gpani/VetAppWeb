@@ -158,21 +158,21 @@
                             <div class="row register-form">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <input type="text" name="nombre" class="form-control" placeholder="Nombre de Mascota *" value="" />
+                                        <input type="text" name="nombre" class="form-control" placeholder="Nombre de Mascota *" value="" required />
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" name="especie" class="form-control" placeholder="Especie *" value="" />
+                                        <input type="text" name="especie" class="form-control" placeholder="Especie *" value="" required />
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" name="raza" class="form-control" placeholder="Raza*" value="" />
+                                        <input type="text" name="raza" class="form-control" placeholder="Raza*" value="" required />
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <input type="date" name="fecha_nac" class="form-control" placeholder="Fecha Nacimiento *" value="" />
+                                        <input type="date" name="fecha_nac" class="form-control" placeholder="Fecha Nacimiento *" value="" required />
                                     </div>
                                     <div class="form-group">
-                                        <select name="sexo" class="form-control">
+                                        <select name="sexo" class="form-control" required>
                                             <option class="hidden" selected disabled>Sexo</option>
                                             <option value="F">F</option>
                                             <option value="M">M</option>
@@ -180,7 +180,7 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <select name="dueño" class="form-control">
+                                        <select name="dueño" class="form-control" required>
                                             <option class="hidden" selected disabled>Dueño</option>
                                             <?php foreach ($this->clientes as $e) { ?>
                                                 <option value="<?= $e['dni'] ?>"><?= $e['nombre_apellido'] ?></option>

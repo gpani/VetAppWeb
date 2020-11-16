@@ -44,16 +44,13 @@
       </div>
     </nav>
   </header>
-  <?php if ($this->mensaje) { ?>
-    <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-      <div class="toast-header">
-        <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="toast-body"><?= $this->mensaje ?></div>
-    </div>
-  <?php } ?>
+  <?php if ($this->mensaje) { 
+    echo("
+    <div id=\"mensaje\" class=\"alert alert-primary\" role=\"alert\">
+    $this->mensaje
+    </div>");
+    $this->mensaje = null;
+  } ?>
   <main role="main" class="container">
     <div id="turnos">
       <h1>Mis próximos turnos</h1>
@@ -88,10 +85,10 @@
             <div class="row register-form">
               <div class="col-md-6">
                 <div class="form-group">
-                  <input type="date" name="fecha" class="form-control" placeholder="Fecha Nacimiento *" value="" />
+                  <input type="date" name="fecha" class="form-control" placeholder="Fecha*" value="" required />
                 </div>
                 <div class="form-group">
-                  <select name="id_mascota" class="form-control">
+                  <select name="id_mascota" class="form-control" required>
                     <option class="hidden" selected disabled>Mascota - Dueño</option>
                     <?php foreach ($this->mascotas as $m) { ?>
                       <option value="<?= $m['id'] ?>"><?= $m['nombre'] ?> - <?= $m['nombre_apellido'] ?></option>
@@ -99,10 +96,10 @@
                   </select>
                 </div>
                 <div class="form-group">
-                  <input type="number" name="peso" step="0.01" class="form-control" placeholder="Peso" value="" />
+                  <input type="number" name="peso" step="0.01" class="form-control" placeholder="Peso" value="" required />
                 </div>
                 <div class="form-group">
-                  <input type="number" name="precio" step="0.01" class="form-control" placeholder="Precio" value="" />
+                  <input type="number" name="precio" step="0.01" class="form-control" placeholder="Precio" value="" required />
                 </div>
                 <div class="form-group">
                   <input type="text" name="notas" class="form-control" placeholder="Notas" value="" />

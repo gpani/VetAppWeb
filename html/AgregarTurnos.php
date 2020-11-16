@@ -47,7 +47,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label class="control-label">Seleccione Profesional</label>
-                                <select name="id_profesional" class="form-control">
+                                <select name="id_profesional" class="form-control" required>
                                     <option disabled>Veterinarios</option>
                                     <?php foreach ($this->veterinarios as $e) { ?>
                                         <option value="<?= $e['dni'] ?>"><?= $e['nombre_apellido'] ?></option>
@@ -64,7 +64,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label class="control-label">Seleccione Mascota</label>
-                                <select name="mascota" class="form-control">
+                                <select name="mascota" class="form-control" required>
                                     <option class="hidden" selected disabled>Seleccione mascota</option>
                                     <?php foreach ($this->mascotas as $e) { ?>
                                         <option value="<?= $e['id'] ?>"><?= $e['nombre'] ?></option>
@@ -78,7 +78,7 @@
                             <div class="form-group">
                                 <label class="control-label">Fecha y Hora</label>
                                 <div class='input-group date' id='datetimepicker1'>
-                                    <input data-date-format="YYYY-MM-DD HH:mm" name="fecha" type='text' class="form-control" />
+                                    <input data-date-format="YYYY-MM-DD HH:mm" name="fecha" type='text' class="form-control" required />
                                     <span class="input-group-addon">
                                         <span class="glyphicon glyphicon-calendar"></span>
                                     </span>

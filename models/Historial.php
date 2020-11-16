@@ -5,7 +5,7 @@
 class Historial extends Model {
 	
 	public function getHistorial() {
-        $this->db->query("SELECT id_mascota, id_profesional, DATE_FORMAT(fecha,'%d/%m/%Y %H:%i') as fecha, precio, peso, notas FROM historial ");		
+        $this->db->query("SELECT id_mascota, id_profesional, DATE_FORMAT(fecha,'%d/%m/%Y') as fecha, precio, peso, notas FROM historial ");		
         return $this->db->fetchAll();
 	}
 
@@ -21,7 +21,7 @@ class Historial extends Model {
 		if (!is_int($id_profesional)) {
             die("id_profesional debe ser int");
 		}
-		$this->db->query("SELECT h.id,masc.nombre,DATE_FORMAT(h.fecha,'%d/%m/%Y %H:%i') as fecha,h.precio,h.peso,h.notas FROM historial h
+		$this->db->query("SELECT h.id,masc.nombre,DATE_FORMAT(h.fecha,'%d/%m/%Y') as fecha,h.precio,h.peso,h.notas FROM historial h
 		join mascota masc on masc.id = h.id_mascota where id_profesional = $id_profesional order by h.fecha desc");		
         return $this->db->fetchAll();
 	}
@@ -34,6 +34,9 @@ class Historial extends Model {
             die("id_profesional debe ser int");
 		}
 		$fecha = $this->db->escape($fecha);
+		if ($fecha == '') {
+			die("fecha incorrecta");
+		}
 		if (!is_float($precio)) {
 			die("precio debe ser int");
 		}
