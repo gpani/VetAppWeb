@@ -83,7 +83,7 @@
                         </div>
                     </div>
                     <button type="submit" class="btn btn-primary">Confirmar</button>
-                    <button type="cancel" class="btn btn-primary">Cancelar</button>
+                    <button type="reset" class="btn btn-primary">Cancelar</button>
                 </div>
             </div>
         </form>

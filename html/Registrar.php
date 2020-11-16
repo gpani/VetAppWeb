@@ -6,6 +6,8 @@
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="https://getbootstrap.com/docs/4.1/examples/sticky-footer-navbar/sticky-footer-navbar.css" rel="stylesheet">
+
     <!------ Include the above in your HEAD tag ---------->
     <style>
         .note {
@@ -37,10 +39,18 @@
             color: #fff;
 
         }
+        .btnEstilo {
+            padding-left: 15px;
+        }
     </style>
 </head>
 
 <body>
+     <nav class="navbar navbar-expand-sm" style="background-color: #77d6d3">
+      <a class="navbar-brand" href="#">
+        <img src="../assets/logo_size.jpg" alt="Logo" style="width:120px;">
+      </a>
+     </nav>
 
     <div class="container register-form">
         <form action="" method="post" class="form" name="formulario">
@@ -89,10 +99,20 @@
 
                 </div>
                 <button type="submit" class="btnSubmit">Confirmar</button>
-                <button type="cancel" class="btnSubmit">Cancelar</button>
+                <button type="reset" class="btnSubmit">Cancelar</button>
             </div>
         </form>
     </div>
+    <div class="btnEstilo">
+        <a type="button" class="btn btn-outline-info" href="./home.php">Atrás</a>
+    </div>
+
+
+    <footer class="footer" style="background-color: #77d6d3">
+    <div class="container text-center">
+      <span class="text-muted">Copyright © 2020 VetAppWeb by Gessi.</span>
+    </div>
+  </footer>
 </body>
 
 </html>

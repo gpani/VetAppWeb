@@ -190,7 +190,7 @@
                                         </select>
                                     </div>
 
-                                    <a type="cancel" class="btnRegister " style="color:white;" value="Cancelar">Cancelar</a>
+                                    <button type="reset" class="btnRegister " style="color:white;" value="Cancelar">Cancelar</button>
                                     <input type="submit" class="btnRegister" value="Registrar" />
                                 </div>
                             </div>
