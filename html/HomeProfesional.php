@@ -44,47 +44,95 @@
       </div>
     </nav>
   </header>
+  <?php if ($this->mensaje) { ?>
+    <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-header">
+        <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="toast-body"><?= $this->mensaje ?></div>
+    </div>
+  <?php } ?>
   <main role="main" class="container">
     <div id="turnos">
-      <h1>Mis turnos asignados</h1>
+      <h1>Mis próximos turnos</h1>
       <table class="table">
-          <thead>
-            <tr class="table-success">
-              <th>Fecha</th>
-              <th>Mascota</th>
-              <th>Especie</th>
-              <th>Raza</th>
-              <th>Dueño</th>
+        <thead>
+          <tr class="table-success">
+            <th>Fecha</th>
+            <th>Mascota</th>
+            <th>Especie</th>
+            <th>Raza</th>
+            <th>Dueño</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php foreach ($this->turnos as $t) { ?>
+            <tr class="table-primary">
+              <td><?= $t['fecha_hora'] ?></td>
+              <td class="table-danger"><?= $t['mascota'] ?></td>
+              <td class="table-info"><?= $t['especie'] ?></td>
+              <td class="table-info"><?= $t['raza'] ?></td>
+              <td class="table-info"><?= $t['nombre_apellido'] ?></td>
             </tr>
-          </thead>
-          <tbody>
-      <?php foreach ($this->turnos as $t) { ?>
-                <tr class="table-primary">
-                <td><?= $t['fecha_hora'] ?></td>
-                <td class="table-danger"><?= $t['mascota'] ?></td>
-                <td class="table-info"><?= $t['especie'] ?></td>
-                <td class="table-info"><?= $t['raza'] ?></td>
-                <td class="table-info"><?= $t['nombre_apellido'] ?></td>
-              </tr>
-            <?php } ?>
-          </tbody>
-        </table>
+          <?php } ?>
+        </tbody>
+      </table>
     </div>
     <div id="historial">
       <h1>Registrar historial</h1>
+      <form action="" method="post" class="form" name="formulario">
+        <div class="row">
+          <div class="col-md-9 register-right">
+            <div class="row register-form">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <input type="date" name="fecha" class="form-control" placeholder="Fecha Nacimiento *" value="" />
+                </div>
+                <div class="form-group">
+                  <select name="id_mascota" class="form-control">
+                    <option class="hidden" selected disabled>Mascota - Dueño</option>
+                    <?php foreach ($this->mascotas as $m) { ?>
+                      <option value="<?= $m['id'] ?>"><?= $m['nombre'] ?> - <?= $m['nombre_apellido'] ?></option>
+                    <?php } ?>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <input type="number" name="peso" step="0.01" class="form-control" placeholder="Peso" value="" />
+                </div>
+                <div class="form-group">
+                  <input type="number" name="precio" step="0.01" class="form-control" placeholder="Precio" value="" />
+                </div>
+                <div class="form-group">
+                  <input type="text" name="notas" class="form-control" placeholder="Notas" value="" />
+                </div>
+                <input type="submit" class="btnRegister" value="Registrar" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+      <br>
+      <h1>Mis registros</h1>
+
     </div>
     <script>
       function verHistorial(onoff) {
         if (onoff) {
           $('#turnos').hide();
           $('#historial').show();
-          $('#botHistTur').html("Ver Turnos");
-          $('#botHistTur').click(function() {verHistorial(false); });
+          $('#botHistTur').html("Turnos");
+          $('#botHistTur').click(function() {
+            verHistorial(false);
+          });
         } else {
           $('#turnos').show();
           $('#historial').hide();
-          $('#botHistTur').html("Ver Historial");
-          $('#botHistTur').click(function() {verHistorial(true); });
+          $('#botHistTur').html("Historial");
+          $('#botHistTur').click(function() {
+            verHistorial(true);
+          });
         }
       }
       verHistorial(false);
