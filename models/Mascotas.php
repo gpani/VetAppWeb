@@ -40,7 +40,7 @@ class Mascotas extends Model {
         $sexo = $this->db->escape($sexo);
         $fecha_nac = $this->db->escape($fecha_nac);
 
-        $this->db->query("UPDATE mascota SET nombre='$nombre', especie='$especie', raza='$raza', sexo='$sexo', fecha_nac='$fecha_nac' where id=$id");
+        $this->db->query("UPDATE mascota SET nombre='$nombre', especie='$especie', raza='$raza', sexo='$sexo', fecha_nac=STR_TO_DATE('$fecha_nac','%d/%m/%Y') where id=$id");
     }
 
 	public function baja($id) {
