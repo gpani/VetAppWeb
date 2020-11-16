@@ -6,12 +6,19 @@
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="https://getbootstrap.com/docs/4.1/examples/sticky-footer-navbar/sticky-footer-navbar.css" rel="stylesheet">
+
     <!------ Include the above in your HEAD tag ---------->
     <style>
         .register {
-            background: #17a2b8;
+            background: #007bff;
             margin-top: 3%;
             padding: 3%;
+            text-align: center;
+            
+        }
+        .btnEstilo {
+          padding-left: 15px;
         }
 
         .register-left {
@@ -84,7 +91,7 @@
             border: none;
             border-radius: 1.5rem;
             padding: 2%;
-            background: #17a2b8;
+            background: #007bff;
             color: #fff;
             font-weight: 600;
             width: 50%;
@@ -131,6 +138,12 @@
 </head>
 
 <body>
+    <nav class="navbar navbar-expand-sm" style="background-color: #77d6d3">
+        <a class="navbar-brand" href="#">
+            <img src="../assets/logo_size.jpg" alt="Logo" style="width:120px;">
+        </a>
+    </nav>
+
     <div class="container register">
         <form action="" method="post" class="form" name="formulario">
 
@@ -175,7 +188,7 @@
                                         </select>
                                     </div>
 
-                                    <input type="cancel" class="btnRegister" value="Cancelar" />
+                                    <a type="cancel" class="btnRegister " style="color:white;" value="Cancelar">Cancelar</a>
                                     <input type="submit" class="btnRegister" value="Registrar" />
                                 </div>
                             </div>
@@ -185,6 +198,15 @@
             </div>
         </form>
     </div>
+    <div class="btnEstilo">
+    <a type="button" class="btn btn-outline-info" href="./home.php">Atrás</a>
+  </div>
+
+    <footer class="footer" style="background-color: #77d6d3">
+    <div class="container text-center">
+      <span class="text-muted">Copyright © 2020 VetAppWeb by Gessi.</span>
+    </div>
+  </footer>
 </body>
 
 </html>

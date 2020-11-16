@@ -26,18 +26,18 @@
   <header>
     <nav class="navbar navbar-expand-sm" style="background-color: #77d6d3">
       <a class="navbar-brand" href="#">
-        <img src="../assets/logo_size.jpg" alt="Logo" style="width:100px;">
+        <img src="../assets/logo_size.jpg" alt="Logo" style="width:120px;">
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="collapsibleNavbar">
         <ul class="navbar-nav">
-          <div class="btn-group">
+          <div class="btn-group btn-group-lg">
             <a class="btn btn-primary" href="./agregarTurno.php">Sacar Turno</a>
             <a class="btn btn-primary" href="./agregarMascotas.php">Agregar Mascota</a>
             <button id="botHistTur" type="button" class="btn btn-primary">Historial</button>
-            <div class="btn-group">
+            <div class="btn-group btn-group-lg">
               <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
                 Perfil
               </button>
@@ -132,7 +132,7 @@
       verHistorial(false);
     </script>
   </main>
-  <footer class="footer">
+  <footer class="footer" style="background-color: #77d6d3">
     <div class="container text-center">
       <span class="text-muted">Copyright © 2020 VetAppWeb by Gessi.</span>
     </div>

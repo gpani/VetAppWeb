@@ -7,21 +7,37 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css">
+    <link href="https://getbootstrap.com/docs/4.1/examples/sticky-footer-navbar/sticky-footer-navbar.css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 
     <style>
         .container {
-            margin-top: 100px;
-        
+
             min-width: 200px;
             max-width: 400px;
-        
+
+        }
+
+        .btnEstilo {
+            padding-left: 15px;
+        }
+
+        .navbar-nav {
+
+            margin-bottom: center !important;
         }
     </style>
 </head>
 
 
 <body>
+    <header>
+        <nav class="navbar navbar-expand-sm" style="background-color: #77d6d3">
+            <a class="navbar-brand" href="#">
+                <img src="../assets/logo_size.jpg" alt="Logo" style="width:120px;">
+            </a>
+        </nav>
+    </header>
     <div class="container">
         <form action="" method="post" class="form" name="formulario">
             <div class="panel panel-primary">
@@ -77,11 +93,21 @@
         </form>
         <p>Recordá que los turnos se asignan por hora, de 10 a 18.</p>
     </div>
-    <script>
-        $(function() {
-            $('#datetimepicker1').datetimepicker();
-        });
-    </script>
+    <div class="btnEstilo">
+        <a type="button" class="btn btn-outline-info" href="./home.php">Atrás</a>
+    </div>
+
+    <footer class="footer" style="background-color: #77d6d3">
+        <div class="container text-center">
+            <span class="text-muted">Copyright © 2020 VetAppWeb by Gessi.</span>
+        </div>
+        <script>
+            $(function() {
+                $('#datetimepicker1').datetimepicker();
+            });
+        </script>
+
+    </footer>
 </body>
 
 </html>
