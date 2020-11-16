@@ -65,7 +65,6 @@
               <th>Tipo de Turno</th>
               <th>Profesional</th>
               <th></th>
-              <th></th>
 
             </tr>
           </thead>
@@ -76,8 +75,6 @@
                 <td class="table-danger"><?= $t['tipo'] ?></td>
                 <td class="table-info"><?= $t['nombre_apellido'] ?></td>
                 <td class="text-center"><button type="button" class="btn btn-danger" onclick="bajaTurno(<?= $t['id'] ?>);">Baja</button></td>
-                <td class="text-center"><button type="button" class="btn btn-primary">Editar</button></td>
-
               </tr>
             <?php } ?>
           </tbody>
