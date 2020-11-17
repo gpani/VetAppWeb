@@ -19,9 +19,15 @@ class Mascotas extends Model {
 	}
 
 	public function agregar($nombre, $especie, $raza, $sexo, $fecha_nac, $id_dueño) {
+		$nombre = substr($nombre, 0, 150);
 		$nombre = $this->db->escape($nombre);
+		$especie = substr($especie, 0, 150);
 		$especie = $this->db->escape($especie);
+		$raza = substr($raza, 0, 150);
 		$raza = $this->db->escape($raza);
+		if($sexo != 'F' && $sexo !='M'){
+			die("sexo debe ser M o F");
+		}
 		$sexo = $this->db->escape($sexo);
 		$fecha_nac = $this->db->escape($fecha_nac);
 		if (!is_int($id_dueño)) {
@@ -33,10 +39,16 @@ class Mascotas extends Model {
     public function actualizar($id, $nombre, $especie, $raza, $sexo, $fecha_nac) {
         if (!is_int($id)) {
             die("Mascota::actualizar id debe ser int");
-        }
-        $nombre = $this->db->escape($nombre);
-        $especie = $this->db->escape($especie);
-        $raza = $this->db->escape($raza);
+		}
+		$nombre = substr($nombre, 0, 150);
+		$nombre = $this->db->escape($nombre);
+		$especie = substr($especie, 0, 150);
+		$especie = $this->db->escape($especie);
+		$raza = substr($raza, 0, 150);
+		$raza = $this->db->escape($raza);
+		if($sexo != 'F' && $sexo !='M'){
+			die("sexo debe ser M o F");
+		}
         $sexo = $this->db->escape($sexo);
         $fecha_nac = $this->db->escape($fecha_nac);
 
