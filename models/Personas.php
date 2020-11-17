@@ -12,12 +12,18 @@ class Personas extends Model {
         if (!is_int($dni)) {
             die("dni debe ser int");
         }
+        $usuario = substr($usuario, 0, 128);
         $usuario = $this->db->escape($usuario);
         $password = sha1($this->db->escape($password));
+        $nombre_apellido = substr($nombre_apellido, 0, 150);
         $nombre_apellido = $this->db->escape($nombre_apellido);
+        $tipo = substr($tipo, 0, 128);
         $tipo = $this->db->escape($tipo);
+        $direccion = substr($direccion, 0, 200);
         $direccion = $this->db->escape($direccion);
+        $telefono = substr($telefono, 0, 50);
         $telefono = $this->db->escape($telefono);
+        $email = substr($email, 0, 320);
         $email = $this->db->escape($email);
         $this->db->query("INSERT INTO `persona` (`dni`, `usuario`, `password`, `nombre_apellido`, `tipo`, `direccion`, `telefono`, `email`) VALUES ($dni, '$usuario', '$password', '$nombre_apellido', '$tipo', '$direccion', '$telefono', '$email')");
     }
@@ -61,11 +67,17 @@ class Personas extends Model {
         if (!is_int($dni)) {
             die("dni debe ser int");
         }
+        $nombre_apellido = substr($nombre_apellido, 0, 150);
         $nombre_apellido = $this->db->escape($nombre_apellido);
+        $tipo = substr($tipo, 0, 128);
         $tipo = $this->db->escape($tipo);
+        $direccion = substr($direccion, 0, 200);
         $direccion = $this->db->escape($direccion);
+        $telefono = substr($telefono, 0, 50);
         $telefono = $this->db->escape($telefono);
+        $usuario = substr($usuario, 0, 128);
         $usuario = $this->db->escape($usuario);
+        $email = substr($email, 0, 320);
         $email = $this->db->escape($email);
 
         $this->db->query("UPDATE persona SET nombre_apellido='$nombre_apellido', tipo='$tipo', direccion='$direccion', telefono='$telefono', usuario='$usuario', email='$email' where dni=$dni");

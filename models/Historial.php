@@ -45,6 +45,7 @@ class Historial extends Model {
 			die("peso debe ser float");
 		}
 		$fecha = $this->db->escape($fecha);
+		$notas = substr($notas, 0, 10000);
 		$notas = $this->db->escapeWildcards($this->db->escape($notas));
 		$this->db->query("INSERT INTO historial(id_mascota,id_profesional,fecha,precio,peso,notas) VALUES ($id_mascota,$id_profesional,'$fecha',$precio,$peso,'$notas')");
 	}
@@ -60,6 +61,7 @@ class Historial extends Model {
 			die("peso debe ser float");
 		}
 		$fecha = $this->db->escapeWildcards($fecha);
+		$notas = substr($notas, 0, 10000);
 		$notas = $this->db->escapeWildcards($this->db->escape($notas));
         $this->db->query("UPDATE historial SET fecha=DATE(STR_TO_DATE('$fecha','%d/%m/%Y')), precio=$precio, peso=$peso, notas='$notas' where id=$id");
     }
