@@ -28,7 +28,8 @@
       <div class="collapse navbar-collapse" id="collapsibleNavbar">
         <ul class="navbar-nav">
           <div class="btn-group">
-            <button id="botHistTur" type="button" class="btn btn-primary">Historial</button>
+            <button id="botTur" type="button" class="btn btn-primary">Mis turnos</button>
+            <button id="botHist" type="button" class="btn btn-primary">Historial</button>
             <div class="btn-group">
               <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
                 Perfil
@@ -144,19 +145,18 @@
         if (onoff) {
           $('#turnos').hide();
           $('#historial').show();
-          $('#botHistTur').html("Turnos");
-          $('#botHistTur').click(function() {
-            verHistorial(false);
-          });
         } else {
           $('#turnos').show();
           $('#historial').hide();
-          $('#botHistTur').html("Historial");
-          $('#botHistTur').click(function() {
-            verHistorial(true);
-          });
         }
       }
+      $('#botHist').click(function() {
+        verHistorial(true);
+      });
+      $('#botTur').click(function() {
+        verHistorial(false);
+      });
+
       verHistorial(false);
 
       function bajaHistorial(id) {

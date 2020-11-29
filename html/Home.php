@@ -37,13 +37,15 @@
           <div class="btn-group btn-group-lg">
             <a class="btn btn-primary" href="./agregarTurno">Sacar Turno</a>
             <a class="btn btn-primary" href="./agregarMascotas">Agregar Mascota</a>
-            <button id="botHistTur" type="button" class="btn btn-primary">Historial</button>
+            <button id="botTur" type="button" class="btn btn-primary">Turnos</button>
+            <button id="botHist" type="button" class="btn btn-primary">Historial</button>
             <div class="btn-group btn-group-lg">
               <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
                 Perfil
               </button>
               <div class="dropdown-menu">
                 <a class="dropdown-item" href="#">Mi cuenta: <?= $this->user['nombre_apellido'] ?></a>
+                <a class="dropdown-item" href="">Borrar mi Cuenta </a>
                 <a class="dropdown-item" href="./logout">Salir</a>
               </div>
             </div>
@@ -154,19 +156,18 @@
         if (onoff) {
           $('#turnos').hide();
           $('#historial').show();
-          $('#botHistTur').html("Ver Turnos");
-          $('#botHistTur').click(function() {
-            verHistorial(false);
-          });
         } else {
           $('#turnos').show();
           $('#historial').hide();
-          $('#botHistTur').html("Ver Historial");
-          $('#botHistTur').click(function() {
-            verHistorial(true);
-          });
         }
       }
+      $('#botHist').click(function() {
+        verHistorial(true);
+      });
+      $('#botTur').click(function() {
+        verHistorial(false);
+      });
+
       verHistorial(false);
 
       function bajaMascota(id) {
