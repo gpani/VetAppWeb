@@ -168,6 +168,7 @@
         verHistorial(false);
       });
 
+
       verHistorial(false);
 
       function bajaMascota(id) {

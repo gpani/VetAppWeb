@@ -29,6 +29,22 @@
             border-radius: 1.5rem;
         }
 
+        .form-controlDir {
+
+
+            display: block;
+            width: 100%;
+            padding: .375rem .75rem;
+            font-size: 1rem;
+            line-height: 1.5;
+            color: #495057;
+            background-color: #fff;
+            background-clip: padding-box;
+            border: 1px solid #ced4da;
+            border-radius: 1.5rem;
+            transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out
+        }
+
         .btnSubmit {
             border: none;
             border-radius: 1.5rem;
@@ -39,6 +55,7 @@
             color: #fff;
 
         }
+
         .btnEstilo {
             padding-left: 15px;
         }
@@ -46,11 +63,11 @@
 </head>
 
 <body>
-     <nav class="navbar navbar-expand-sm" style="background-color: #77d6d3">
-      <a class="navbar-brand" href="#">
-        <img src="./assets/logo_size.jpg" alt="Logo" style="width:120px;">
-      </a>
-     </nav>
+    <nav class="navbar navbar-expand-sm" style="background-color: #77d6d3">
+        <a class="navbar-brand" href="#">
+            <img src="./assets/logo_size.jpg" alt="Logo" style="width:120px;">
+        </a>
+    </nav>
 
     <div class="container register-form">
         <form action="" method="post" class="form" name="formulario">
@@ -62,21 +79,34 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <input type="text" name="nombre_apellido" class="form-control" placeholder="Nombre y Apellido *" value="" required/>
+                            <input type="text" name="nombre_apellido" class="form-control" placeholder="Nombre *" value="" required />
                         </div>
                         <div class="form-group">
-                            <input type="text" name="email" class="form-control" placeholder="Mail *" value="" required/>
+                            <input type="text" name="nombre_apellido" class="form-control" placeholder="Apellido *" value="" required />
                         </div>
                         <div class="form-group">
-                            <input type="text" name="direccion" class="form-control" placeholder="Dirección *" value="" />
+                            <input type="text" name="email" class="form-control" placeholder="Mail *" value="" required />
                         </div>
+                        <div class="form-group">
+                            <input type="text" name="direccion" class="form-control" placeholder="Nombre de Calle *" value="" />
+                        </div>
+                        <div class="row">
+                            <div class="col-4">
+                                <input type="text" name="" placeholder="Altura *" class="form-controlDir"  />
+                            </div>
+                            <div class="col-4">
+                                <input type="num" id="card-number"  placeholder="Cod. Postal *"class="form-controlDir" maxlength="4" />
+                            </div> 
+                        </div>
+    </br>
                         <div class="form-group">
                             <input type="text" name="dni" class="form-control" placeholder="DNI *" value="" required />
                         </div>
+
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <input type="text" name="usuario" class="form-control" placeholder="Usuario*" value="" required/>
+                            <input type="text" name="usuario" class="form-control" placeholder="Usuario*" value="" required />
                         </div>
                         <div class="form-group">
                             <input type="password" name="password" class="form-control" placeholder="Contraseña *" value="" required />
@@ -109,10 +139,10 @@
 
 
     <footer class="footer" style="background-color: #77d6d3">
-    <div class="container text-center">
-      <span class="text-muted">Copyright © 2020 VetAppWeb by Gessi.</span>
-    </div>
-  </footer>
+        <div class="container text-center">
+            <span class="text-muted">Copyright © 2020 VetAppWeb by Gessi.</span>
+        </div>
+    </footer>
 </body>
 
 </html>
